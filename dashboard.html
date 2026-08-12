@@ -3,115 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE DASHBOARD</title>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <link rel="stylesheet" href="assets/css/dashboard.css">
+    <title>VEQZAI Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
 </head>
 <body>
-    <div class="dashboard-container">
-        <!-- Header -->
-        <div class="dashboard-header">
-            <h1>VEQZAI DASHBOARD</h1>
-            <div class="user-menu">
-                <button class="logout-btn">Logout</button>
-            </div>
-        </div>
+    <div class="dashboard-shell">
+        <header class="topbar">
+            <div class="topbar-left">
+                <div class="brand-block">
+                    <img src="assets/images/LOGO.png" alt="VEQZAI logo" class="brand-logo">
+                </div>
 
-        <!-- Main Grid -->
-        <div class="dashboard-grid">
-            <!-- 3D Model Viewer Card -->
-            <div class="user-profile-card">
-                <span class="model-title">3D Model Viewer</span>
-                <canvas id="canvas3d"></canvas>
+                <nav class="main-nav" aria-label="Main navigation">
+                    <a href="#">Heroes</a>
+                    <a href="#">Armory</a>
+                    <a href="#">Watch</a>
+                    <a href="#">Learn</a>
+                    <a href="#">Arcade</a>
+                </nav>
             </div>
 
-            <!-- Stats Section -->
-            <div class="stats-section">
-                <h3>Performance Stats</h3>
-                <div class="chart-container">
-                    <div class="chart-box">
-                        <span class="chart-title">Improved Past Week</span>
-                        <svg viewBox="0 0 100 50" preserveAspectRatio="xMidYMid meet">
-                            <polyline points="5,45 25,35 45,25 65,30 85,15" stroke="#ff6b6b" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                            <polyline points="5,45 25,35 45,25 65,30 85,15" stroke="#ff6b6b" stroke-width="1" fill="url(#gradient)" opacity="0.3"/>
-                            <defs>
-                                <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:0.3"/>
-                                    <stop offset="100%" style="stop-color:#ff6b6b;stop-opacity:0"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
+            <div class="topbar-right">
+                <div class="currency-pill">
+                    <span class="coin-icon">◉</span>
+                    <span>28,395</span>
+                </div>
+                <button class="icon-btn small-badge">1</button>
+                <button class="icon-btn">✦</button>
+                <button class="icon-btn power-btn">◌</button>
+            </div>
+        </header>
+
+        <main class="dashboard-layout">
+            <aside class="left-rail">
+                <div class="profile-card">
+                    <div class="avatar-wrap">
+                        <div class="avatar-ring"></div>
+                        <div class="avatar-crest">V</div>
                     </div>
-                    <div class="chart-box">
-                        <span class="chart-title">Game Breakdown</span>
-                        <div class="pie-chart">
-                            <div class="pie-center">
-                                <span class="pie-label">ML: 0</span>
-                                <span class="pie-label">DOTA: 0</span>
-                                <span class="pie-label">LOS: 0</span>
-                                <span class="pie-label">MOD: 0</span>
-                            </div>
+
+                    <div class="profile-meta">
+                        <div class="player-name">Kuzumato</div>
+                        <div class="player-tag">[code]</div>
+                        <div class="player-role">Single Draft: Strategy Time</div>
+                    </div>
+
+                    <div class="hero-strip">
+                        <div class="mini-avatar active"></div>
+                        <div class="mini-avatar"></div>
+                        <div class="mini-avatar"></div>
+                        <div class="mini-avatar"></div>
+                        <div class="mini-avatar"></div>
+                    </div>
+                </div>
+
+                <div class="search-box">
+                    <span>Search friends</span>
+                    <span class="search-icon">⌕</span>
+                </div>
+
+                <div class="friend-panel">
+                    <div class="panel-header">Pending (1)</div>
+                    <div class="friend-row">
+                        <span class="status-dot online"></span>
+                        <span class="friend-text">TrumP 2020!</span>
+                    </div>
+                    <div class="friend-row">
+                        <span class="status-dot online"></span>
+                        <span class="friend-text">Friend Request Pending</span>
+                    </div>
+
+                    <div class="panel-header">Online (2)</div>
+                    <div class="friend-row">
+                        <span class="status-dot online"></span>
+                        <span class="friend-text">Hoo Lee-Sheet [XANTL]</span>
+                    </div>
+                    <div class="friend-row">
+                        <span class="status-dot online"></span>
+                        <span class="friend-text">Regentprofen [God]</span>
+                    </div>
+
+                    <div class="panel-header">Offline (0)</div>
+                    <div class="friend-row muted">
+                        <span class="status-dot offline"></span>
+                        <span class="friend-text">No friends online</span>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="center-stage">
+                <div class="tournament-banner">
+                    <div class="banner-mark">
+                        <img src="assets/images/LOGO.png" alt="VEQZAI brand mark">
+                    </div>
+
+                    <div class="banner-copy">
+                        <div class="banner-label">Group stage - day 1</div>
+                        <h2>Starts in 20h 52m 11s</h2>
+                    </div>
+
+                    <div class="banner-promo">
+                        <div class="promo-art">
+                            <div class="promo-glow"></div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Games List -->
-            <div class="games-list-card">
-                <h3>Games</h3>
-                <div class="game-item">
-                    <div>
-                        <div class="game-name">Mobile Legends</div>
-                        <div class="game-stats">1,250 hrs</div>
-                    </div>
-                    <span class="stat-value">⭐ 4.8</span>
-                </div>
-                <div class="game-item">
-                    <div>
-                        <div class="game-name">DOTA 2</div>
-                        <div class="game-stats">850 hrs</div>
-                    </div>
-                    <span class="stat-value">⭐ 4.5</span>
-                </div>
-                <div class="game-item">
-                    <div>
-                        <div class="game-name">League of Shadows</div>
-                        <div class="game-stats">620 hrs</div>
-                    </div>
-                    <span class="stat-value">⭐ 4.2</span>
-                </div>
-            </div>
-        </div>
+                <div class="reward-section">
+                    <div class="section-intro">Participate in Fantasy and Predictions to unlock free rewards.</div>
 
-        <!-- Recent Activity -->
-        <div class="recent-activity">
-            <h3>Recent Activity</h3>
-            <div class="activity-item">
-                <div class="activity-text">
-                    <div class="activity-title">Victory in Mobile Legends</div>
-                    <div class="activity-time">2 hours ago</div>
+                    <div class="reward-grid">
+                        <article class="reward-card fantasy-card">
+                            <div class="reward-icon">◈</div>
+                            <div class="reward-copy">
+                                <span class="reward-title">Fantasy</span>
+                                <span class="reward-sub">Group Stage</span>
+                            </div>
+                            <button class="gold-btn">Craft your team</button>
+                        </article>
+
+                        <article class="reward-card reward-card--middle">
+                            <div class="reward-icon">✦</div>
+                            <div class="reward-copy">
+                                <span class="reward-title">Rewards</span>
+                                <span class="reward-sub">Collect free loot</span>
+                            </div>
+                            <button class="gold-btn secondary">View rewards</button>
+                        </article>
+
+                        <article class="reward-card prediction-card">
+                            <div class="reward-icon">▣</div>
+                            <div class="reward-copy">
+                                <span class="reward-title">Predictions</span>
+                                <span class="reward-sub">Group Stage</span>
+                            </div>
+                            <button class="gold-btn">Set predictions</button>
+                        </article>
+                    </div>
                 </div>
-                <span class="activity-badge">WIN</span>
-            </div>
-            <div class="activity-item">
-                <div class="activity-text">
-                    <div class="activity-title">Unlocked Achievement: Headshot Master</div>
-                    <div class="activity-time">5 hours ago</div>
+
+                <div class="bundle-section">
+                    <div class="bundle-intro">Purchase bundles to support your favorite Teams and Talent.</div>
+
+                    <div class="bundle-grid">
+                        <article class="bundle-card">
+                            <div class="bundle-illustration talent"></div>
+                            <div class="bundle-label">Talent bundles</div>
+                            <div class="bundle-price">Buy from $9.00</div>
+                        </article>
+
+                        <article class="bundle-card accent">
+                            <div class="bundle-illustration team"></div>
+                            <div class="bundle-label">Team bundles</div>
+                            <div class="bundle-price">Buy from $69.00</div>
+                        </article>
+                    </div>
+
+                    <div class="bundle-note">50% of all purchases goes directly to the team or talent and 30% goes to The International prize pool.</div>
                 </div>
-                <span class="activity-badge">NEW</span>
-            </div>
-            <div class="activity-item">
-                <div class="activity-text">
-                    <div class="activity-title">Ranked up to Gold Tier</div>
-                    <div class="activity-time">1 day ago</div>
+            </section>
+
+            <aside class="right-rail">
+                <div class="promo-panel big-promo">
+                    <div class="promo-art large-art">
+                        <div class="promo-glow"></div>
+                    </div>
                 </div>
-                <span class="activity-badge">RANK UP</span>
-            </div>
-        </div>
+
+                <div class="promo-panel small-promo">
+                    <div class="promo-mini">
+                        <div class="mini-meter">21</div>
+                    </div>
+                    <h3>Quartero's curious</h3>
+                    <p>Play Dota and unlock hero cosmetics for free.</p>
+                </div>
+
+                <button class="disconnect-btn">Disconnect</button>
+                <button class="return-btn">Return to game</button>
+            </aside>
+        </main>
     </div>
 
-    <script src="assets/js/dashboard.js"></script>
-  <script src="assets/js/dashboard-page.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginPage = 'pages/auth/login/login.html';
+
+            if (localStorage.getItem('loggedIn') !== 'true') {
+                window.location.href = loginPage;
+                return;
+            }
+
+            function redirectToLogin() {
+                localStorage.removeItem('loggedIn');
+                localStorage.removeItem('username');
+                localStorage.removeItem('userId');
+                localStorage.removeItem('authToken');
+                window.location.href = loginPage;
+            }
+
+            const disconnectBtn = document.querySelector('.disconnect-btn');
+            if (disconnectBtn) {
+                disconnectBtn.addEventListener('click', redirectToLogin);
+            }
+
+            const returnBtn = document.querySelector('.return-btn');
+            if (returnBtn) {
+                returnBtn.addEventListener('click', redirectToLogin);
+            }
+        });
+    </script>
 </body>
 </html>

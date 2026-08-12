@@ -17,7 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (username === validUsername && password === validPassword) {
           localStorage.setItem('loggedIn', 'true');
           localStorage.setItem('username', username);
-          window.location.href = "dashboard/dashboard.html";
+          localStorage.setItem('userId', 'demo-user');
+          localStorage.setItem('authToken', 'demo-token');
+          window.location.href = "../../../dashboard.html";
         } else {
           errorMsg.textContent = "Invalid username or password. Try admin / 12345";
           errorMsg.style.display = "block";
