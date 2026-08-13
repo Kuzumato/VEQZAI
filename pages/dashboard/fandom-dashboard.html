@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>VEQZAI | Fandom Dashboard</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;800&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="../../assets/css/dashboard.css">
+</head>
+<body>
+   <div class="dashboard-shell">
+       <header class="topbar">
+           <div class="topbar-left">
+               <a href="dashboard.html" class="brand-block" aria-label="Back to main dashboard">
+                   <img src="../../assets/images/LOGO.png" alt="VEQZAI logo" class="brand-logo">
+               </a>
+
+               <nav class="main-nav" aria-label="Main navigation">
+                   <a href="heroes-dashboard.html">Heroes</a>
+                   <a href="armory-dashboard.html">Armory</a>
+                   <a href="watch-dashboard.html">Watch</a>
+                   <a href="learn-dashboard.html">Learn</a>
+                   <a href="arcade-dashboard.html">Arcade</a>
+                   <a href="fandom-dashboard.html">Fandom</a>
+               </nav>
+           </div>
+
+           <div class="topbar-right">
+               <div class="currency-pill">
+                   <span class="coin-icon">â—‰</span>
+                   <span>28,395</span>
+               </div>
+               <div class="utility-folder" id="utilityFolder">
+                   <button class="icon-btn utility-folder-toggle" type="button" aria-label="Open utility folder">â–£</button>
+                   <div class="utility-menu" aria-label="Utility actions">
+                       <button class="icon-btn small-badge utility-trigger" data-panel="notifications" aria-label="Open notifications">1</button>
+                       <button class="icon-btn utility-trigger" data-panel="favorites" aria-label="Open favorites">âœ¦</button>
+                       <button class="icon-btn power-btn utility-trigger" data-panel="account" aria-label="Open account controls">â—Œ</button>
+                   </div>
+               </div>
+           </div>
+       </header>
+
+       <div class="side-panel-overlay" id="sidePanelOverlay"></div>
+       <aside class="side-panel" id="utilityPanel" aria-hidden="true">
+           <div class="side-panel-header">
+               <div>
+                   <span class="side-panel-kicker">Quick access</span>
+                   <h3 id="panelTitle">Notifications</h3>
+               </div>
+               <button type="button" class="close-panel-btn" aria-label="Close panel">âœ•</button>
+           </div>
+
+           <nav class="panel-tabs" aria-label="Utility panels">
+               <button class="panel-tab is-active" data-panel="notifications" type="button">Notifications</button>
+               <button class="panel-tab" data-panel="favorites" type="button">Favorites</button>
+               <button class="panel-tab" data-panel="account" type="button">Account</button>
+           </nav>
+
+           <div class="panel-content">
+               <div class="panel-view is-active" data-panel-content="notifications">
+                   <div class="panel-item"><strong>New squad invite</strong><span>TrumP 2020! requested a match for tonight.</span></div>
+                   <div class="panel-item"><strong>Reward ready</strong><span>Your weekly loot crate has been unlocked and is waiting for collection.</span></div>
+                   <div class="panel-item"><strong>Stream reminder</strong><span>Quartero's curious match starts in 42 minutes.</span></div>
+               </div>
+
+               <div class="panel-view" data-panel-content="favorites">
+                   <div class="panel-item"><strong>Favorite heroes</strong><span>Nova Vex, Kairo, and Aster were added to your pinned set.</span></div>
+                   <div class="panel-item"><strong>Saved builds</strong><span>Three loadouts are stored for quick switching before your next game.</span></div>
+                   <div class="panel-item"><strong>Watch list</strong><span>Top players and streamers are pinned for live updates.</span></div>
+               </div>
+
+               <div class="panel-view" data-panel-content="account">
+                   <div class="panel-item"><strong>Player</strong><span>Kuzumato â€¢ [code]</span></div>
+                   <div class="account-actions">
+                       <button type="button">View profile</button>
+                       <button type="button">Account settings</button>
+                       <button type="button">Log out</button>
+                   </div>
+               </div>
+           </div>
+       </aside>
+
+       <main class="section-dashboard-content">
+           <div class="section-hero">
+               <div class="section-tag">Community Pulse</div>
+               <h1>Fandom Dashboard</h1>
+               <p>Celebrate stories, characters, and fan-made moments with the same interface language as the rest of your VEQZAI dashboard.</p>
+           </div>
+
+           <div class="section-grid">
+               <article class="section-card">
+                   <div class="card-kicker">F</div>
+                   <h2>Latest Posts</h2>
+                   <p>Track the newest fan stories, art drops, and community highlights circulating across your favorite universes.</p>
+                   <ul>
+                       <li>14 new posts today</li>
+                       <li>3 creator spotlights</li>
+                       <li>2 fan projects trending</li>
+                   </ul>
+               </article>
+
+               <article class="section-card">
+                   <div class="card-kicker">â˜…</div>
+                   <h2>Featured Characters</h2>
+                   <p>Discover community favorites and the most-loved characters being reimagined across fan content and cosplay.</p>
+                   <ul>
+                       <li>8 featured heroes</li>
+                       <li>4 new character edits</li>
+                       <li>1 fan story in review</li>
+                   </ul>
+               </article>
+
+               <article class="section-card">
+                   <div class="card-kicker">â—Œ</div>
+                   <h2>Top Fandoms</h2>
+                   <p>Follow the communities gaining momentum and see which worlds are currently driving the strongest fan energy.</p>
+                   <ul>
+                       <li>Arcane Odyssey</li>
+                       <li>Nexus</li>
+                       <li>Velocity</li>
+                   </ul>
+               </article>
+           </div>
+       </main>
+   </div>
+
+   <script>
+       document.addEventListener('DOMContentLoaded', function () {
+           const loginPage = '../auth/login/login.html';
+           if (localStorage.getItem('loggedIn') !== 'true') {
+               window.location.href = loginPage;
+               return;
+           }
+
+           const overlay = document.getElementById('sidePanelOverlay');
+           const panel = document.getElementById('utilityPanel');
+           const panelTitle = document.getElementById('panelTitle');
+           const tabs = Array.from(document.querySelectorAll('.panel-tab'));
+           const views = Array.from(document.querySelectorAll('.panel-view'));
+           const triggers = Array.from(document.querySelectorAll('.utility-trigger'));
+           const closeBtn = document.querySelector('.close-panel-btn');
+           const utilityFolder = document.getElementById('utilityFolder');
+           const utilityFolderToggle = document.querySelector('.utility-folder-toggle');
+
+           function setPanel(panelName) {
+               const titleMap = {
+                   notifications: 'Notifications',
+                   favorites: 'Favorites',
+                   account: 'Account'
+               };
+
+               panelTitle.textContent = titleMap[panelName] || 'Quick access';
+               tabs.forEach((tab) => tab.classList.toggle('is-active', tab.dataset.panel === panelName));
+               views.forEach((view) => view.classList.toggle('is-active', view.dataset.panelContent === panelName));
+           }
+
+           function openPanel(panelName) {
+               setPanel(panelName);
+               panel.classList.add('is-open');
+               overlay.classList.add('is-open');
+               panel.setAttribute('aria-hidden', 'false');
+           }
+
+           function closePanel() {
+               panel.classList.remove('is-open');
+               overlay.classList.remove('is-open');
+               panel.setAttribute('aria-hidden', 'true');
+               if (utilityFolder) {
+                   utilityFolder.classList.remove('is-open');
+               }
+           }
+
+           if (utilityFolderToggle) {
+               utilityFolderToggle.addEventListener('click', function () {
+                   if (utilityFolder) {
+                       utilityFolder.classList.toggle('is-open');
+                   }
+               });
+           }
+
+           triggers.forEach((trigger) => {
+               trigger.addEventListener('click', function () {
+                   openPanel(this.dataset.panel);
+                   if (utilityFolder) {
+                       utilityFolder.classList.remove('is-open');
+                   }
+               });
+           });
+
+           tabs.forEach((tab) => {
+               tab.addEventListener('click', function () {
+                   setPanel(this.dataset.panel);
+               });
+           });
+
+           overlay.addEventListener('click', closePanel);
+           closeBtn.addEventListener('click', closePanel);
+
+           document.addEventListener('keydown', function (event) {
+               if (event.key === 'Escape' && panel.classList.contains('is-open')) {
+                   closePanel();
+               }
+           });
+       });
+   </script>
+</body>
+</html>
+
+

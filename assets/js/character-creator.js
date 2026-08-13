@@ -891,7 +891,7 @@ function closeModal(modalId) {
 
 // Go to dashboard
 function goToDashboard() {
-    window.location.href = '/dashboard.html';
+    window.location.href = 'dashboard.html';
 }
 
 // Local storage functions

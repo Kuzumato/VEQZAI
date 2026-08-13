@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
           localStorage.setItem('username', username);
           localStorage.setItem('userId', 'demo-user');
           localStorage.setItem('authToken', 'demo-token');
-          window.location.href = "../../../dashboard.html";
+          window.location.href = "../../dashboard/dashboard.html";
         } else {
           errorMsg.textContent = "Invalid username or password. Try admin / 12345";
           errorMsg.style.display = "block";

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
 
       if (isLoginTarget && isLoggedIn) {
-        window.location.href = 'dashboard.html';
+        window.location.href = 'pages/dashboard/dashboard.html';
         return;
       }
 

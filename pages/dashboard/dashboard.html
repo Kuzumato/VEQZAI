@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEQZAI Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-shell">
+        <header class="topbar">
+            <div class="topbar-left">
+                <a href="dashboard.html" class="brand-block" aria-label="Back to main dashboard">
+                    <img src="../../assets/images/LOGO.png" alt="VEQZAI logo" class="brand-logo">
+                </a>
+
+                <nav class="main-nav" aria-label="Main navigation">
+                    <a href="heroes-dashboard.html">Heroes</a>
+                    <a href="armory-dashboard.html">Armory</a>
+                    <a href="watch-dashboard.html">Watch</a>
+                    <a href="learn-dashboard.html">Learn</a>
+                    <a href="arcade-dashboard.html">Arcade</a>
+                    <a href="fandom-dashboard.html">Fandom</a>
+                </nav>
+            </div>
+
+            <div class="topbar-right">
+                <div class="currency-pill">
+                    <span class="coin-icon">â—‰</span>
+                    <span>28,395</span>
+                </div>
+                <div class="utility-folder" id="utilityFolder">
+                    <button class="icon-btn utility-folder-toggle" type="button" aria-label="Open utility folder">â–£</button>
+                    <div class="utility-menu" aria-label="Utility actions">
+                        <button class="icon-btn small-badge utility-trigger" data-panel="notifications" aria-label="Open notifications">1</button>
+                        <button class="icon-btn utility-trigger" data-panel="favorites" aria-label="Open favorites">âœ¦</button>
+                        <button class="icon-btn power-btn utility-trigger" data-panel="account" aria-label="Open account controls">â—Œ</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="side-panel-overlay" id="sidePanelOverlay"></div>
+        <aside class="side-panel" id="utilityPanel" aria-hidden="true">
+            <div class="side-panel-header">
+                <div>
+                    <span class="side-panel-kicker">Quick access</span>
+                    <h3 id="panelTitle">Notifications</h3>
+                </div>
+                <button type="button" class="close-panel-btn" aria-label="Close panel">âœ•</button>
+            </div>
+
+            <nav class="panel-tabs" aria-label="Utility panels">
+                <button class="panel-tab is-active" data-panel="notifications" type="button">Notifications</button>
+                <button class="panel-tab" data-panel="favorites" type="button">Favorites</button>
+                <button class="panel-tab" data-panel="account" type="button">Account</button>
+            </nav>
+
+            <div class="panel-content">
+                <div class="panel-view is-active" data-panel-content="notifications">
+                    <div class="panel-item"><strong>New squad invite</strong><span>TrumP 2020! requested a match for tonight.</span></div>
+                    <div class="panel-item"><strong>Reward ready</strong><span>Your weekly loot crate has been unlocked and is waiting for collection.</span></div>
+                    <div class="panel-item"><strong>Stream reminder</strong><span>Quartero's curious match starts in 42 minutes.</span></div>
+                </div>
+
+                <div class="panel-view" data-panel-content="favorites">
+                    <div class="panel-item"><strong>Favorite heroes</strong><span>Nova Vex, Kairo, and Aster were added to your pinned set.</span></div>
+                    <div class="panel-item"><strong>Saved builds</strong><span>Three loadouts are stored for quick switching before your next game.</span></div>
+                    <div class="panel-item"><strong>Watch list</strong><span>Top players and streamers are pinned for live updates.</span></div>
+                </div>
+
+                <div class="panel-view" data-panel-content="account">
+                    <div class="panel-item"><strong>Player</strong><span>Kuzumato â€¢ [code]</span></div>
+                    <div class="account-actions">
+                        <button type="button">View profile</button>
+                        <button type="button">Account settings</button>
+                        <button type="button">Log out</button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="dashboard-layout">
+            <aside class="left-rail">
+                <div class="profile-card">
+                    <div class="avatar-wrap">
+                        <div class="avatar-ring"></div>
+                        <div class="avatar-crest">V</div>
+                    </div>
+
+                    <div class="profile-meta">
+                        <div class="player-name">Kuzumato</div>
+                        <div class="player-tag">[code]</div>
+                        <div class="player-role">Single Draft: Strategy Time</div>
+                    </div>
+
+                    <div class="hero-strip">
+                        <div class="mini-avatar active"></div>
+                        <div class="mini-avatar"></div>
+                        <div class="mini-avatar"></div>
+                        <div class="mini-avatar"></div>
+                        <div class="mini-avatar"></div>
+                    </div>
+                </div>
+
+                <div class="search-box">
+                    <span>Search friends</span>
+                    <span class="search-icon">âŒ•</span>
+                </div>
+
+                <div class="friend-panel">
+                    <div class="panel-header">Pending (1)</div>
+                    <div class="friend-row">
+                        <span class="status-dot online"></span>
+                        <span class="friend-text">TrumP 2020!</span>
+                    </div>
+                    <div class="friend-row">
+                        <span class="status-dot online"></span>
+                        <span class="friend-text">Friend Request Pending</span>
+                    </div>
+
+                    <div class="panel-header">Online (2)</div>
+                    <div class="friend-row">
+                        <span class="status-dot online"></span>
+                        <span class="friend-text">Hoo Lee-Sheet [XANTL]</span>
+                    </div>
+                    <div class="friend-row">
+                        <span class="status-dot online"></span>
+                        <span class="friend-text">Regentprofen [God]</span>
+                    </div>
+
+                    <div class="panel-header">Offline (0)</div>
+                    <div class="friend-row muted">
+                        <span class="status-dot offline"></span>
+                        <span class="friend-text">No friends online</span>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="center-stage">
+                <div class="tournament-banner">
+                    <div class="banner-mark">
+                        <img src="../../assets/images/LOGO.png" alt="VEQZAI brand mark">
+                    </div>
+
+                    <div class="banner-copy">
+                        <div class="banner-label">Group stage - day 1</div>
+                        <h2>Starts in 20h 52m 11s</h2>
+                    </div>
+
+                    <div class="banner-promo">
+                        <div class="promo-art">
+                            <div class="promo-glow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reward-section">
+                    <div class="section-intro">Participate in Fantasy and Predictions to unlock free rewards.</div>
+
+                    <div class="reward-grid">
+                        <article class="reward-card fantasy-card">
+                            <div class="reward-icon">â—ˆ</div>
+                            <div class="reward-copy">
+                                <span class="reward-title">Fantasy</span>
+                                <span class="reward-sub">Group Stage</span>
+                            </div>
+                            <button class="gold-btn">Craft your team</button>
+                        </article>
+
+                        <article class="reward-card reward-card--middle">
+                            <div class="reward-icon">âœ¦</div>
+                            <div class="reward-copy">
+                                <span class="reward-title">Rewards</span>
+                                <span class="reward-sub">Collect free loot</span>
+                            </div>
+                            <button class="gold-btn secondary">View rewards</button>
+                        </article>
+
+                        <article class="reward-card prediction-card">
+                            <div class="reward-icon">â–£</div>
+                            <div class="reward-copy">
+                                <span class="reward-title">Predictions</span>
+                                <span class="reward-sub">Group Stage</span>
+                            </div>
+                            <button class="gold-btn">Set predictions</button>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="bundle-section">
+                    <div class="bundle-intro">Purchase bundles to support your favorite Teams and Talent.</div>
+
+                    <div class="bundle-grid">
+                        <article class="bundle-card">
+                            <div class="bundle-illustration talent"></div>
+                            <div class="bundle-label">Talent bundles</div>
+                            <div class="bundle-price">Buy from $9.00</div>
+                        </article>
+
+                        <article class="bundle-card accent">
+                            <div class="bundle-illustration team"></div>
+                            <div class="bundle-label">Team bundles</div>
+                            <div class="bundle-price">Buy from $69.00</div>
+                        </article>
+                    </div>
+
+                    <div class="bundle-note">50% of all purchases goes directly to the team or talent and 30% goes to The International prize pool.</div>
+                </div>
+            </section>
+
+            <aside class="right-rail">
+                <div class="promo-panel big-promo">
+                    <div class="promo-art large-art">
+                        <div class="promo-glow"></div>
+                    </div>
+                </div>
+
+                <div class="promo-panel small-promo">
+                    <div class="promo-mini">
+                        <div class="mini-meter">21</div>
+                    </div>
+                    <h3>Quartero's curious</h3>
+                    <p>Play Dota and unlock hero cosmetics for free.</p>
+                </div>
+
+                <button class="disconnect-btn">Disconnect</button>
+                <button class="return-btn">Return to game</button>
+            </aside>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginPage = '../auth/login/login.html';
+
+            if (localStorage.getItem('loggedIn') !== 'true') {
+                window.location.href = loginPage;
+                return;
+            }
+
+            function redirectToLogin() {
+                localStorage.removeItem('loggedIn');
+                localStorage.removeItem('username');
+                localStorage.removeItem('userId');
+                localStorage.removeItem('authToken');
+                window.location.href = loginPage;
+            }
+
+            const overlay = document.getElementById('sidePanelOverlay');
+            const panel = document.getElementById('utilityPanel');
+            const panelTitle = document.getElementById('panelTitle');
+            const tabs = Array.from(document.querySelectorAll('.panel-tab'));
+            const views = Array.from(document.querySelectorAll('.panel-view'));
+            const triggers = Array.from(document.querySelectorAll('.utility-trigger'));
+            const closeBtn = document.querySelector('.close-panel-btn');
+            const utilityFolder = document.getElementById('utilityFolder');
+            const utilityFolderToggle = document.querySelector('.utility-folder-toggle');
+
+            function setPanel(panelName) {
+                const titleMap = {
+                    notifications: 'Notifications',
+                    favorites: 'Favorites',
+                    account: 'Account'
+                };
+
+                panelTitle.textContent = titleMap[panelName] || 'Quick access';
+                tabs.forEach((tab) => tab.classList.toggle('is-active', tab.dataset.panel === panelName));
+                views.forEach((view) => view.classList.toggle('is-active', view.dataset.panelContent === panelName));
+            }
+
+            function openPanel(panelName) {
+                setPanel(panelName);
+                panel.classList.add('is-open');
+                overlay.classList.add('is-open');
+                panel.setAttribute('aria-hidden', 'false');
+            }
+
+            function closePanel() {
+                panel.classList.remove('is-open');
+                overlay.classList.remove('is-open');
+                panel.setAttribute('aria-hidden', 'true');
+                if (utilityFolder) {
+                    utilityFolder.classList.remove('is-open');
+                }
+            }
+
+            if (utilityFolderToggle) {
+                utilityFolderToggle.addEventListener('click', function () {
+                    if (utilityFolder) {
+                        utilityFolder.classList.toggle('is-open');
+                    }
+                });
+            }
+
+            triggers.forEach((trigger) => {
+                trigger.addEventListener('click', function () {
+                    openPanel(this.dataset.panel);
+                    if (utilityFolder) {
+                        utilityFolder.classList.remove('is-open');
+                    }
+                });
+            });
+
+            tabs.forEach((tab) => {
+                tab.addEventListener('click', function () {
+                    setPanel(this.dataset.panel);
+                });
+            });
+
+            overlay.addEventListener('click', closePanel);
+            closeBtn.addEventListener('click', closePanel);
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' && panel.classList.contains('is-open')) {
+                    closePanel();
+                }
+            });
+
+            const disconnectBtn = document.querySelector('.disconnect-btn');
+            if (disconnectBtn) {
+                disconnectBtn.addEventListener('click', redirectToLogin);
+            }
+
+            const returnBtn = document.querySelector('.return-btn');
+            if (returnBtn) {
+                returnBtn.addEventListener('click', redirectToLogin);
+            }
+
+            const logoutAction = document.querySelector('.account-actions button:last-child');
+            if (logoutAction) {
+                logoutAction.addEventListener('click', redirectToLogin);
+            }
+        });
+    </script>
+</body>
+</html>
+

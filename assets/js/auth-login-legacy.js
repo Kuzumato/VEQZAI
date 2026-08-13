@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem('username', username);
             localStorage.setItem('loginTime', new Date().toISOString());
             
-            window.location.href = "../../../dashboard.html"; // Redirect to dashboard
+            window.location.href = "../../dashboard/dashboard.html"; // Redirect to dashboard
         } else {
             alert("Invalid username or password. Try again.");
         }
