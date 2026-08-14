@@ -179,7 +179,7 @@
                 localStorage.removeItem('kycName');
                 localStorage.removeItem('gameSignup');
                 localStorage.removeItem('gameUser');
-                window.location.href = '/pages/auth/login/login.html';
+                window.location.href = '../auth/login/login.html';
             }
         });
 

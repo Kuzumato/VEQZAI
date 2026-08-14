@@ -15,7 +15,7 @@ async function initDashboard() {
 
         if (!userId || !authToken) {
             console.log('User not authenticated, redirecting to login');
-            window.location.href = '/pages/auth/login/login.html';
+            window.location.href = '../auth/login/login.html';
             return;
         }
 
@@ -336,7 +336,7 @@ function showCreateCharacterPrompt() {
                 You haven't created a character yet. Create your unique anime character now to get started on your VEQZAI journey!
             </p>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                <button onclick="location.href='/character%20making.html'" style="
+                <button onclick="location.href='character%20making.html'" style="
                     padding: 14px 20px;
                     background: linear-gradient(135deg, #ff6b6b, #ff8787);
                     color: #fff;
@@ -390,7 +390,7 @@ async function updateCharacterFromCreator() {
 function editCharacter() {
     if (currentCharacter) {
         localStorage.setItem('characterData', JSON.stringify(currentCharacter));
-        window.location.href = '/character%20making.html';
+        window.location.href = 'character%20making.html';
     }
 }
 

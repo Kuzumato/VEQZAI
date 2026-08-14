@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 // DEV: memory stores (not for production)
 const users = {}; // username -> { id, username, passwordHash }
 const resetTokens = {}; // token -> { userId, expires }
+const characters = {}; // userId -> character[]
 
 // create demo user: admin / 12345
 (async function createDemo() {
@@ -55,7 +56,7 @@ app.post('/api/auth/logout', (req, res) => {
   });
 });
 
-// POST /api/auth/forgot  (generate token and "send" email — dev: console)
+// POST /api/auth/forgot  (generate token and "send" email - dev: console)
 app.post('/api/auth/forgot', (req, res) => {
   const { username } = req.body || {};
   if (!username) return res.status(400).json({ error: 'username required' });
@@ -100,6 +101,37 @@ app.post('/api/auth/register', async (req, res) => {
   const passwordHash = await bcrypt.hash(password, 10);
   users[username] = { id, username, passwordHash };
   return res.json({ success: true, userId: id });
+});
+
+// POST /api/characters/save
+app.post('/api/characters/save', (req, res) => {
+  const payload = req.body || {};
+  const userId = payload.userId || (req.session && req.session.userId);
+  if (!userId) return res.status(401).json({ error: 'userId required' });
+
+  const character = {
+    ...payload,
+    id: payload.id || 'character_' + Date.now(),
+    userId,
+    updatedAt: new Date().toISOString()
+  };
+
+  const userCharacters = characters[userId] || [];
+  const existingIndex = userCharacters.findIndex(item => item.id === character.id);
+  if (existingIndex >= 0) {
+    userCharacters[existingIndex] = character;
+  } else {
+    userCharacters.unshift(character);
+  }
+  characters[userId] = userCharacters;
+
+  return res.json({ success: true, characterId: character.id });
+});
+
+// GET /api/characters/user/:userId
+app.get('/api/characters/user/:userId', (req, res) => {
+  const userId = req.params.userId;
+  return res.json({ characters: characters[userId] || [] });
 });
 
 const port = process.env.PORT || 3000;

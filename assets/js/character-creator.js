@@ -823,7 +823,7 @@ function resetCharacter() {
     saveCharacterToLocalStorage();
 }
 
-// Save character to database
+// Save character to the backend when available, with a local fallback for static use.
 function saveCharacter() {
     // Validate character name
     if (!characterData.name || characterData.name.trim() === '') {
@@ -864,7 +864,7 @@ async function saveCharacterToServer(data) {
         }
 
         const result = await response.json();
-        characterData.id = result.characterId;
+        characterData.id = result.characterId || characterData.id;
 
         // Show success modal
         showSuccessModal('Character saved successfully!');
@@ -872,8 +872,11 @@ async function saveCharacterToServer(data) {
         // Auto-save to local storage
         saveCharacterToLocalStorage();
     } catch (error) {
-        console.error('Error saving character:', error);
-        alert('Error saving character. Please try again.');
+        console.warn('Backend save unavailable; saving character locally.', error);
+        characterData.id = characterData.id || 'local_' + Date.now();
+        Object.assign(characterData, data, { id: characterData.id });
+        saveCharacterToLocalStorage();
+        showSuccessModal('Character saved locally.');
     }
 }
 

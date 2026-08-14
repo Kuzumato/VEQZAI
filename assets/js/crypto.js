@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 responsive: true,
                 maintainAspectRatio: false,
                 scales: {
-                    x: { type: 'time', time: { unit: 'minute', tooltipFormat: 'HH:mm:ss' }, ticks: { autoSkip: true, maxTicksLimit: 6 } },
+                    x: { ticks: { autoSkip: true, maxTicksLimit: 6 } },
                     y: { beginAtZero: false }
                 },
                 plugins: { legend: { display: false } }
@@ -184,8 +184,8 @@ document.addEventListener('DOMContentLoaded', function () {
             tr.innerHTML = `
                 <td data-label="Coin"><img src="${c.image}" alt="${c.name}" width="20" height="20"> ${c.name} <small>(${c.symbol.toUpperCase()})</small></td>
                 <td data-label="Price (USD)">$${Number(c.current_price).toLocaleString(undefined, {maximumFractionDigits: 2})}</td>
-                <td data-label="24h" class="${pctClass}">${pct ? pct.toFixed(2) + '%' : '—'}</td>
-                <td data-label="Market Cap">$${c.market_cap ? Number(c.market_cap).toLocaleString() : '—'}</td>
+                <td data-label="24h" class="${pctClass}">${pct ? pct.toFixed(2) + '%' : '-'}</td>
+                <td data-label="Market Cap">$${c.market_cap ? Number(c.market_cap).toLocaleString() : '-'}</td>
             `;
             // open coin detail layer when row clicked
             tr.addEventListener('click', () => {
@@ -206,12 +206,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const coin = data && data[0];
         if (!coin) return;
         const t = new Date();
-        const label = t.toISOString();
+        const label = t.toLocaleTimeString();
         const price = Number(coin.current_price);
 
         // push label/price to chart, keep last 30 points
         marketChart.data.labels.push(label);
-        marketChart.data.datasets[0].data.push({ x: label, y: price });
+        marketChart.data.datasets[0].data.push(price);
         if (marketChart.data.labels.length > 30) {
             marketChart.data.labels.shift();
             marketChart.data.datasets[0].data.shift();
@@ -265,9 +265,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (coinName) coinName.textContent = info.name || '';
         if (coinSymbol) coinSymbol.textContent = (info.symbol || '').toUpperCase();
         const m = info.market_data || {};
-        if (coinPrice) coinPrice.textContent = `Price: $${m.current_price && m.current_price.usd ? Number(m.current_price.usd).toLocaleString(undefined, {maximumFractionDigits:2}) : '—'}`;
-        if (coinChange) coinChange.textContent = `24h: ${m.price_change_percentage_24h_in_currency && m.price_change_percentage_24h_in_currency.usd ? m.price_change_percentage_24h_in_currency.usd.toFixed(2) + '%' : '—'}`;
-        if (coinMarketCap) coinMarketCap.textContent = `Market Cap: $${m.market_cap && m.market_cap.usd ? Number(m.market_cap.usd).toLocaleString() : '—'}`;
+        if (coinPrice) coinPrice.textContent = `Price: $${m.current_price && m.current_price.usd ? Number(m.current_price.usd).toLocaleString(undefined, {maximumFractionDigits:2}) : '-'}`;
+        if (coinChange) coinChange.textContent = `24h: ${m.price_change_percentage_24h_in_currency && m.price_change_percentage_24h_in_currency.usd ? m.price_change_percentage_24h_in_currency.usd.toFixed(2) + '%' : '-'}`;
+        if (coinMarketCap) coinMarketCap.textContent = `Market Cap: $${m.market_cap && m.market_cap.usd ? Number(m.market_cap.usd).toLocaleString() : '-'}`;
         if (coinDesc) coinDesc.innerHTML = info.description && info.description.en ? (info.description.en.split('\n')[0] || '') : '';
 
         // fetch market chart for 1 day
@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!r.ok) throw new Error('Chart fetch failed: ' + r.status);
             const chartData = await r.json();
             const prices = chartData.prices || [];
-            const labels = prices.map(p => new Date(p[0]));
+            const labels = prices.map(p => new Date(p[0]).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
             const values = prices.map(p => p[1]);
             // render chart
             if (coinChart) { coinChart.destroy(); coinChart = null; }
@@ -293,7 +293,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     labels: labels,
                     datasets: [{ label: 'Price (USD)', data: values, borderColor: '#ff9f1c', backgroundColor: 'rgba(255,159,28,0.06)', tension:0.2, pointRadius:0 }]
                 },
-                options: { responsive:true, maintainAspectRatio:false, scales: { x:{ type:'time', time:{ unit:'hour' } }, y:{ beginAtZero:false } }, plugins:{ legend:{ display:false } } }
+                options: { responsive:true, maintainAspectRatio:false, scales: { x:{ ticks:{ autoSkip:true, maxTicksLimit:6 } }, y:{ beginAtZero:false } }, plugins:{ legend:{ display:false } } }
             });
         } catch (err) {
             console.error('Failed to fetch coin market chart', err);
@@ -301,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     async function fetchAndRender() {
-        if (tableBody) tableBody.innerHTML = '<tr><td colspan="4">Loading…</td></tr>';
+        if (tableBody) tableBody.innerHTML = '<tr><td colspan="4">Loading...</td></tr>';
         await fetchPrices();
     }
 

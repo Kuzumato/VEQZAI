@@ -40,7 +40,7 @@ function renderPosts() {
     el.innerHTML = `
       <h3>${escapeHtml(p.title)}</h3>
       <p>${escapeHtml(p.body)}</p>
-      <div class="meta">By ${escapeHtml(p.author)} · ${escapeHtml(p.time)}</div>
+      <div class="meta">By ${escapeHtml(p.author)} &middot; ${escapeHtml(p.time)}</div>
     `;
     container.appendChild(el);
   });

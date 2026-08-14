@@ -7,9 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../../css/crypto.css">
+    <link rel="stylesheet" href="../../assets/css/crypto.css">
 </head>
 <body>
     <div class="dashboard-shell">
@@ -20,6 +20,7 @@
                 </a>
                 <nav class="main-nav" aria-label="Main navigation">
                     <a href="heroes-dashboard.html">Heroes</a>
+                    <a href="character%20making.html">Character</a>
                     <a href="armory-dashboard.html">Armory</a>
                     <a href="watch-dashboard.html">Watch</a>
                     <a href="learn-dashboard.html">Learn</a>
@@ -106,16 +107,16 @@
                         <div class="balance">
                             <i class="fa-solid fa-circle-dollar-sign" aria-hidden="true"></i>
                             <div class="balance-number">28,395 VEQ</div>
-                            <div class="balance-usd">≈ $12,845.00</div>
+                            <div class="balance-usd">approx. $12,845.00</div>
                         </div>
                     </article>
 
                     <article class="section-card">
                         <h3>Recent Activity</h3>
                         <ul class="activity-list">
-                            <li>Received 1,200 VEQ — Loot crate</li>
-                            <li>Sent 500 VEQ — Market trade</li>
-                            <li>Reward claimed — Weekly login</li>
+                            <li>Received 1,200 VEQ - Loot crate</li>
+                            <li>Sent 500 VEQ - Market trade</li>
+                            <li>Reward claimed - Weekly login</li>
                         </ul>
                     </article>
 
@@ -197,18 +198,18 @@
                                     <tr><th>Coin</th><th>Price (USD)</th><th>24h</th><th>Market Cap</th></tr>
                                 </thead>
                                 <tbody id="cryptoTableBody">
-                                    <tr><td colspan="4">Loading…</td></tr>
+                                    <tr><td colspan="4">Loading...</td></tr>
                                 </tbody>
                             </table>
                         </div>
-                        <div class="feed-meta">Last updated: <span id="cryptoLastUpdated">—</span></div>
+                        <div class="feed-meta">Last updated: <span id="cryptoLastUpdated">-</span></div>
 
                         <!-- Coin detail slide-over layer -->
                         <aside class="coin-layer" id="coinLayer" aria-hidden="true">
                             <button class="close-btn" id="coinLayerClose" aria-label="Close">&times;</button>
                             <div class="coin-content">
                                 <div class="coin-header">
-                                    <img id="coinIcon" src="" alt="">
+                                    <img id="coinIcon" src="../../assets/images/LOGO.png" alt="Selected coin icon">
                                     <div class="coin-meta">
                                         <div id="coinName" style="font-weight:700"></div>
                                         <div id="coinSymbol" style="color:rgba(237,246,255,0.75)"></div>
@@ -216,9 +217,9 @@
                                 </div>
 
                                 <div class="coin-stats">
-                                    <div class="stat" id="coinPrice">—</div>
-                                    <div class="stat" id="coinChange">—</div>
-                                    <div class="stat" id="coinMarketCap">—</div>
+                                    <div class="stat" id="coinPrice">-</div>
+                                    <div class="stat" id="coinChange">-</div>
+                                    <div class="stat" id="coinMarketCap">-</div>
                                 </div>
 
                                 <div class="coin-chart">
@@ -235,6 +236,6 @@
         </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <script src="../../js/crypto.js"></script>
+    <script src="../../assets/js/crypto.js"></script>
 </body>
 </html>

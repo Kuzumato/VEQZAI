@@ -65,12 +65,14 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('gameUser', username);
         sessionStorage.setItem('userId', 'user_' + Date.now());
         sessionStorage.setItem('authToken', 'token_' + Date.now());
+        sessionStorage.setItem('loggedIn', 'true');
+        sessionStorage.setItem('username', username);
         sessionStorage.setItem('loginTime', new Date().toISOString());
 
         successMsg.textContent = 'Sign up and KYC completed! Redirecting...';
         successMsg.style.display = 'block';
         setTimeout(() => {
-          window.location.href = 'character making.html';
+          window.location.href = 'pages/dashboard/character%20making.html';
         }, 1700);
       });
     });
