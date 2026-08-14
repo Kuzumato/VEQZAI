@@ -13,7 +13,7 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1><i class="fa-solid fa-heart" aria-hidden="true"></i> ANIME CHARACTER CREATOR <i class="fa-solid fa-heart" aria-hidden="true"></i></h1>
+            <h1>♥ ANIME CHARACTER CREATOR ♥</h1>
             <p>Craft your unique anime hero for VEQZAI</p>
         </div>
 
@@ -344,7 +344,7 @@
     <!-- Success Modal -->
     <div class="modal" id="successModal">
         <div class="modal-content">
-            <h2><i class="fa-solid fa-heart" aria-hidden="true"></i> Character Saved! <i class="fa-solid fa-heart" aria-hidden="true"></i></h2>
+            <h2>♥ Character Saved! ♥</h2>
             <p id="successMessage">Your character has been successfully saved to your account.</p>
             <div class="modal-buttons">
                 <button class="btn btn-secondary" data-action="close-modal" data-modal-id="successModal">Edit More</button>
@@ -356,6 +356,5 @@
     <script src="../../assets/js/character-creator.js"></script>
 </body>
 </html>
-
 
 

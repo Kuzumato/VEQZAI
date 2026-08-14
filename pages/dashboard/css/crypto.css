@@ -1,0 +1,185 @@
+/* Crypto dashboard specific styles */
+
+/* Table and layout */
+.crypto-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+.crypto-table th, .crypto-table td { padding: 8px 6px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.crypto-table img { vertical-align: middle; margin-right: 8px; }
+.positive { color: #39b54a; }
+.negative { color: #ff6b6b; }
+.feed-meta { margin-top: 8px; font-size: 12px; color: rgba(237,246,255,0.7); }
+.balance { display:flex; align-items:center; gap:10px }
+.balance-number { font-weight:700 }
+.balance-usd { font-size:12px; color: rgba(237,246,255,0.7) }
+
+/* Make a horizontal scroll container for small screens */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* Controls layout - responsive */
+.live-controls { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+.live-controls label { display:flex; align-items:center; gap:6px; color: rgba(237,246,255,0.85); }
+.live-controls input, .live-controls select { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.04); color: var(--text); padding: 6px 8px; border-radius:6px }
+
+/* Responsive grid: stack cards on small screens */
+.section-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+
+/* Make action buttons wrap and sizing adaptive */
+.actions { display:flex; gap:8px; flex-wrap:wrap }
+.actions .btn { padding:8px 10px; font-size:14px }
+
+/* Pagination adjustments */
+.pagination .btn { padding:6px 10px }
+
+/* Live market layer */
+.market-layer { margin-bottom: 12px; background: rgba(255,255,255,0.02); padding: 12px; border-radius:8px }
+.market-layer h4 { margin:0 0 8px 0; font-size:14px }
+.chart-wrap { width:100%; max-width:100%; }
+.chart-wrap canvas { width:100% !important; height:auto !important; display:block }
+
+/* Small screen tweaks */
+@media (max-width: 720px) {
+    .crypto-table { }
+    .balance { flex-direction: column; align-items: flex-start; }
+    .currency-pill { padding: 6px 8px; font-size: 11px }
+    .live-controls { flex-direction: column; align-items: stretch; }
+    .live-controls label { width: 100%; }
+    .pagination { justify-content: space-between; }
+    .coin-icon { font-size: 12px }
+    .card-kicker { display:none }
+}
+
+@media (max-width: 420px) {
+    .crypto-table { }
+    .balance-usd { font-size:11px }
+    .actions .btn { flex: 1 1 auto; }
+}
+
+/* Ensure controls layout keeps pagination to the right on larger screens */
+.live-controls .pagination { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+
+/* Inline label sizes moved from HTML */
+.live-controls label, .live-controls label * { font-size: 13px }
+
+/* Hero image default styling (placeholder) */
+.hero-img { background-size: cover; background-position: center; width:100%; height:220px; display:block; position:relative }
+.hero-overlay { position:absolute; left:18px; bottom:18px; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.6) }
+.hero-overlay .card-kicker { font-size:12px; color: rgba(255,255,255,0.75); margin-bottom:6px }
+.hero-overlay h4 { margin:0 0 6px 0 }
+.hero-overlay p { margin:0; font-size:13px; color: rgba(237,246,255,0.85); max-width:70% }
+
+/* chart-wrap default heights moved from inline */
+.chart-wrap.small { height:160px }
+.chart-wrap.medium { height:180px }
+
+/* table spacing */
+.table-wrap { margin-top:12px }
+
+/* Market hero default background */
+#marketHero { background-image: radial-gradient(circle at 10% 20%, rgba(255,159,28,0.06), transparent 10%), linear-gradient(180deg, rgba(12,12,12,0.3), rgba(6,6,6,0.2)); }
+#marketHero::after { content: ""; position:absolute; inset:0; background: linear-gradient(90deg, rgba(0,0,0,0.15), rgba(0,0,0,0.35)); }
+
+
+/* Coin detail slide-over layer */
+.coin-layer { position: fixed; right: -520px; top: 0; height: 100%; width: 520px; max-width: 100%; background: linear-gradient(180deg, #071726, #081820); box-shadow: -12px 0 30px rgba(0,0,0,0.6); transition: right 300ms ease; z-index: 1200; overflow:auto; padding:18px }
+.coin-layer.is-open { right: 0 }
+.coin-layer .close-btn { background: transparent; border: none; color: rgba(237,246,255,0.9); font-size:18px; position:absolute; left:12px; top:12px }
+.coin-layer .coin-header { display:flex; gap:12px; align-items:center; margin-bottom:12px }
+.coin-layer .coin-header img { width:36px; height:36px }
+.coin-layer .coin-meta { color: rgba(237,246,255,0.9) }
+.coin-layer .coin-stats { display:flex; gap:8px; margin-top:8px }
+.coin-layer .coin-stats .stat { background: rgba(255,255,255,0.02); padding:8px; border-radius:6px; font-size:13px }
+.coin-layer .coin-chart { height:220px; margin-top:12px }
+
+/* Table row hover & clickable */
+.crypto-table tbody tr { cursor: pointer; }
+.crypto-table tbody tr:hover { background: rgba(255,255,255,0.02); }
+
+@media (max-width: 640px) {
+    .coin-layer { width: 100%; right: -100%; }
+    .coin-layer.is-open { right: 0 }
+}
+
+
+/* Mobile stacked table: hide headers and show labels via data-label attributes */
+@media (max-width: 720px) {
+    .crypto-table thead { display: none; }
+    .crypto-table, .crypto-table tbody, .crypto-table tr, .crypto-table td { display: block; width: 100%; }
+    .crypto-table td { display: flex; justify-content: space-between; padding: 10px 8px; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .crypto-table td::before { content: attr(data-label); font-weight:600; color: rgba(237,246,255,0.7); margin-right: 12px; }
+    .crypto-table td img { margin-right: 8px; max-width: 28px; height: auto; }
+    .pagination { justify-content: space-between; }
+}
+
+/* Ticker strip */
+.market-ticker { background: linear-gradient(180deg, #0e2533, #0b1b26); padding: 8px 12px; display:flex; gap:18px; align-items:center; color: #9fb3c8; overflow:hidden; border-bottom:1px solid rgba(255,255,255,0.03); }
+.market-ticker .ticker-item { display:inline-flex; gap:8px; align-items:center; font-size:13px; white-space:nowrap; }
+.market-ticker .ticker-item .sym { font-weight:600; color:#e6f7ff }
+.market-ticker .ticker-item .up { color:#39b54a }
+.market-ticker .ticker-item .down { color:#ff6b6b }
+.market-ticker .search-inline { margin-left:auto; display:flex; align-items:center; gap:8px }
+.market-ticker .search-inline input[type="search"] { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.04); color: var(--text); padding: 6px 10px; border-radius:20px; width:220px }
+
+/* Live market two-column layout */
+.live-market-grid { display:grid; grid-template-columns: 1fr 380px; gap:12px; align-items:start }
+.market-brief { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:0; border-radius:8px; overflow:hidden }
+.market-brief .hero-img { background-color:#1a2b38; width:100%; height:220px; display:block; position:relative }
+.market-brief .hero-overlay { position:absolute; left:18px; bottom:18px; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.6) }
+.market-brief .hero-overlay .card-kicker { font-size:12px; color: rgba(255,255,255,0.75); margin-bottom:6px }
+.market-brief .hero-overlay h4 { margin:0 0 6px 0 }
+
+.market-summary { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:12px; border-radius:8px }
+.index-cards { display:flex; gap:8px; margin-bottom:8px }
+.index-card { flex:1; background: rgba(0,0,0,0.12); padding:10px; border-radius:6px; color:#e6f7ff }
+.index-card .index-title { font-size:12px; color: rgba(255,255,255,0.8) }
+.index-card .index-value { font-weight:700; font-size:18px; margin-top:4px }
+.index-card .index-delta { font-size:12px; margin-top:4px }
+
+/* Responsive adjustments for the new layout */
+@media (max-width: 900px) {
+    .live-market-grid { grid-template-columns: 1fr; }
+    .market-summary { order: 2 }
+    .market-brief { order: 1 }
+    .market-ticker .search-inline input[type="search"] { width:140px }
+}
+
+/* Dark, centered dashboard panel and sidebar look */
+:root { --bg:#0b0b0d; --panel:#0f1315; --muted:#9fb3c8; --text:#e6f7ff; --accent:#ff9f1c; }
+body { background: linear-gradient(180deg, #050607 0%, #0d1113 100%); color:var(--text); }
+.dashboard-shell { max-width:1150px; margin:28px auto; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:12px; box-shadow: 0 8px 40px rgba(2,6,23,0.7); overflow:hidden; padding:16px; border: 1px solid rgba(255,255,255,0.03) }
+.topbar { display:flex; align-items:center; justify-content:space-between; padding:12px 8px; background:transparent }
+.brand-logo { height:28px }
+.main-nav a { color: rgba(255,255,255,0.7); margin-right:12px; padding:6px 8px; border-radius:6px }
+.main-nav a:hover { background: rgba(255,255,255,0.02); color:var(--text) }
+.topbar-right .currency-pill { background: rgba(255,255,255,0.03); padding:6px 10px; border-radius:18px; color:var(--text); display:inline-flex; gap:8px; align-items:center }
+
+/* Left sidebar look (simulate the dark wallet menu) */
+.side-nav { width:220px; background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.25)); padding:12px; border-radius:8px }
+.side-nav a { display:block; color:var(--muted); padding:10px 12px; border-radius:6px; margin-bottom:6px }
+.side-nav a.active, .side-nav a:hover { background: rgba(255,255,255,0.02); color:var(--text); }
+
+/* Panel cards match the rounded dark panels in the reference */
+.section-card { background: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.12)); padding:14px; border-radius:10px; box-shadow: 0 6px 22px rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.02) }
+.card-kicker { background: rgba(255,255,255,0.03); padding:6px 8px; border-radius:6px; display:inline-block; font-size:12px }
+
+/* Buttons with accent */
+.btn { background: rgba(255,255,255,0.02); color:var(--text); border:1px solid rgba(255,255,255,0.03); padding:8px 12px; border-radius:8px }
+.btn.primary { background: linear-gradient(90deg, var(--accent), #ff7a00); color:#071017; font-weight:700 }
+.btn.ghost { background: transparent; border:1px solid rgba(255,255,255,0.04) }
+
+/* Market chart accent */
+.market-layer { background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); padding:12px; border-radius:10px; }
+.market-layer h4 { color:var(--muted); margin-bottom:8px }
+
+/* Index cards: darker box with small titles */
+.index-card { background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(255,255,255,0.02)); padding:12px; border-radius:8px; color:var(--text); box-shadow: inset 0 1px 0 rgba(255,255,255,0.01) }
+.index-card .index-delta.positive { color: #4cd964 }
+.index-card .index-delta.negative { color: #ff6b6b }
+
+/* Make chart lines orange to match reference */
+.chart-line-accent { --chart-stroke: var(--accent); --chart-fill: rgba(255,159,28,0.07) }
+
+/* Small utility tweaks for compact sidebar layout on small screens */
+@media (max-width: 920px) {
+    .dashboard-shell { margin:12px; padding:10px }
+    .section-grid { grid-template-columns: 1fr }
+}
+

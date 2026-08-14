@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up | VEQZAI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/signup.css">
+  <script src="assets/js/signup.js"></script>
+</head>
+<body>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+  <a href="index.html" class="back-link">← Back</a>
+
+  <div class="main-wrapper">
+    <div class="signup-header">
+      <h1 class="signup-title">Join VEQZAI</h1>
+      <p class="signup-subtitle">◆ Create Your Gaming Account ◆</p>
+    </div>
+
+    <form id="signup-form" autocomplete="off">
+      <div class="forms-row">
+        <!-- KYC Sign Up -->
+        <div class="card">
+          <h2>KYC Sign Up</h2>
+          <div class="subtitle">
+            <b>Know Your Customer</b> verification ensures account security and compliance.
+          </div>
+          <label for="fullName">Full Name*</label>
+          <input type="text" name="fullName" id="fullName" placeholder="Your full legal name" required>
+
+          <label for="dob">Date of Birth*</label>
+          <input type="date" name="dob" id="dob" required>
+
+          <label for="nationality">Nationality*</label>
+          <input type="text" name="nationality" id="nationality" placeholder="e.g. Indian, American" required>
+
+          <label for="idType">ID Type*</label>
+          <select name="idType" id="idType" required>
+            <option value="">Select ID Type</option>
+            <option value="passport">Passport</option>
+            <option value="national_id">National ID Card</option>
+            <option value="driver_license">Driver's License</option>
+            <option value="voter_card">Voter Card</option>
+            <option value="other">Other</option>
+          </select>
+
+          <label for="idNumber">ID Number*</label>
+          <input type="text" name="idNumber" id="idNumber" placeholder="Enter your ID number" required>
+
+          <label for="address">Residential Address*</label>
+          <input type="text" name="address" id="address" placeholder="Full address" required>
+
+          <label for="kycEmail">Email Address*</label>
+          <input type="email" name="kycEmail" id="kycEmail" placeholder="your@email.com" required>
+
+          <label for="phone">Phone Number*</label>
+          <input type="text" name="phone" id="phone" placeholder="10-15 digits" required>
+        </div>
+
+        <!-- Game Sign Up -->
+        <div class="card">
+          <h2>Game Account</h2>
+          <div class="subtitle">
+            Choose your gaming username and password. Use a strong password!
+          </div>
+          <label for="username">Username*</label>
+          <input type="text" name="username" id="username" placeholder="Your gaming username" required>
+
+          <label for="gameEmail">Email Address*</label>
+          <input type="email" name="gameEmail" id="gameEmail" placeholder="your@email.com" required>
+
+          <label for="password">Password*</label>
+          <input type="password" name="password" id="password" placeholder="Strong password" required>
+
+          <label for="confirmPassword">Confirm Password*</label>
+          <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm password" required>
+
+          <div class="checkbox-row">
+            <input type="checkbox" name="agree" id="agree" required>
+            <label for="agree">
+              I agree to the <a href="pages/legal/terms.html" target="_blank">Terms</a> & <a href="pages/legal/privacy.html" target="_blank">Privacy Policy</a>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions-row signup-actions">
+        <button class="btn" type="submit">Sign Up Now</button>
+        <a class="login-link" href="pages/auth/login/login.html">Already have an account? Login</a>
+        <div class="success-message" id="form-success"></div>
+        <div class="error-message" id="form-error"></div>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VEQZAI — The Ultimate Gaming & Esports Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/index.css">
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav>
+    <a class="logo" href="index.html">
+      <img src="assets/images/LOGO.png" alt="VEQZAI">
+      <span>VEQZAI</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#games">Games</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#stats">Community</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="btn-ghost" type="button" data-href="pages/auth/login/login.html">Login</button>
+      <button class="btn-primary" type="button" data-href="signup.html">Sign Up</button>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow2"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">◆ Play Without Limits</div>
+      <h1>
+        <span class="line1">Welcome to</span>
+        <span class="line2">VEQZAI</span>
+      </h1>
+      <p class="hero-sub">
+        Join millions of players in the ultimate gaming and esports platform. Stream, compete, and connect with gamers worldwide.
+      </p>
+      <div class="hero-ctas">
+        <button class="btn-xl" type="button" data-href="pages/auth/login/login.html">Start Playing</button>
+        <button class="btn-xl-ghost" type="button" data-href="VEQZAI.html">Learn More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED GAMES -->
+  <section class="games-section" id="games">
+    <div class="section-label">◆ Featured Titles</div>
+    <h2 class="section-title">Trending Games</h2>
+
+    <div class="games-grid">
+      <!-- Featured Game -->
+      <div class="game-card game-purple">
+        <div class="game-bg">🎮</div>
+        <div class="game-bg-gradient"></div>
+        <div class="game-info">
+          <span class="game-badge">Featured</span>
+          <div class="game-genre">RPG</div>
+          <h3 class="game-title">Arcane Odyssey</h3>
+          <div class="game-meta">
+            <span class="game-rating">★ 4.8</span>
+            <span class="game-players">2.4M Active</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game 2 -->
+      <div class="game-card game-cyan">
+        <div class="game-bg">⚔️</div>
+        <div class="game-bg-gradient"></div>
+        <div class="game-info">
+          <span class="game-badge badge-hot">Hot</span>
+          <div class="game-genre">Action</div>
+          <h3 class="game-title">Nexus</h3>
+          <div class="game-meta">
+            <span class="game-rating">★ 4.9</span>
+            <span class="game-players">5.2M Active</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game 3 -->
+      <div class="game-card game-red">
+        <div class="game-bg">🏎️</div>
+        <div class="game-bg-gradient"></div>
+        <div class="game-info">
+          <span class="game-badge badge-new">New</span>
+          <div class="game-genre">Racing</div>
+          <h3 class="game-title">Velocity</h3>
+          <div class="game-meta">
+            <span class="game-rating">★ 4.6</span>
+            <span class="game-players">1.8M Active</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game 4 -->
+      <div class="game-card game-cyan">
+        <div class="game-bg">👾</div>
+        <div class="game-bg-gradient"></div>
+        <div class="game-info">
+          <div class="game-genre">Shooter</div>
+          <h3 class="game-title">Vortex</h3>
+          <div class="game-meta">
+            <span class="game-rating">★ 4.7</span>
+            <span class="game-players">3.1M Active</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game 5 -->
+      <div class="game-card game-purple">
+        <div class="game-bg">⚽</div>
+        <div class="game-bg-gradient"></div>
+        <div class="game-info">
+          <div class="game-genre">Sports</div>
+          <h3 class="game-title">Champion Pro</h3>
+          <div class="game-meta">
+            <span class="game-rating">★ 4.5</span>
+            <span class="game-players">2.9M Active</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features-section" id="features">
+    <div class="section-label">◆ Why Choose VEQZAI</div>
+    <h2 class="section-title">Packed with Features</h2>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🎮</div>
+        <h3 class="feature-title">Massive Library</h3>
+        <p class="feature-desc">Access hundreds of games from indie developers to AAA studios, updated daily.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📡</div>
+        <h3 class="feature-title">Live Streaming</h3>
+        <p class="feature-desc">Stream your gameplay to thousands. Built-in tools for creators and pros.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🏆</div>
+        <h3 class="feature-title">Tournaments</h3>
+        <p class="feature-desc">Compete in daily tournaments with real prize pools and rankings.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">👥</div>
+        <h3 class="feature-title">Community</h3>
+        <p class="feature-desc">Connect with gamers worldwide. Form teams, join guilds, and build your community.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔐</div>
+        <h3 class="feature-title">Secure & Safe</h3>
+        <p class="feature-desc">Anti-cheat systems, encrypted accounts, and moderation teams protect your experience.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3 class="feature-title">Ultra-Fast</h3>
+        <p class="feature-desc">Optimized servers worldwide mean low latency and smooth gameplay everywhere.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section" id="stats">
+    <div class="stats-section-inner">
+      <div class="section-label">◆ By The Numbers</div>
+      <h2 class="section-title">Join Our Community</h2>
+
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">50M+</div>
+          <div class="stat-label">Active Players</div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Games Available</div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-number">$10M+</div>
+          <div class="stat-label">Prize Pools</div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-number">200</div>
+          <div class="stat-label">Countries</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FANDOM SECTION -->
+  <section id="fandom" class="games-section fandom-section">
+    <div class="section-label">◆ Fandom Hub</div>
+    <h2 class="section-title">Community Highlights</h2>
+
+    <div class="card fandom-card fandom-card-spaced">
+      <h3 class="fandom-card-title">Latest Fan Posts</h3>
+      <div id="posts" class="posts-list fandom-list"></div>
+    </div>
+
+    <div class="card fandom-card">
+      <h3 class="fandom-card-title">Featured Characters</h3>
+      <div id="featured" class="featured-grid fandom-list"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#">About</a>
+        <a href="#">Support</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 VEQZAI. All rights reserved. | Play Without Limits.
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/fandom-dashboard.js"></script>
+
+  <script src="assets/js/index.js"></script>
+</body>
+</html>

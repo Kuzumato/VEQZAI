@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEQZAI | Crypto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/crypto.css">
+</head>
+<body>
+    <div class="dashboard-shell">
+        <header class="topbar">
+            <div class="topbar-left">
+                <a href="dashboard.html" class="brand-block" aria-label="Back to main dashboard">
+                    <img src="../../assets/images/LOGO.png" alt="VEQZAI logo" class="brand-logo">
+                </a>
+                <nav class="main-nav" aria-label="Main navigation">
+                    <a href="heroes-dashboard.html">Heroes</a>
+                    <a href="armory-dashboard.html">Armory</a>
+                    <a href="watch-dashboard.html">Watch</a>
+                    <a href="learn-dashboard.html">Learn</a>
+                    <a href="arcade-dashboard.html">Arcade</a>
+                    <a href="fandom-dashboard.html">Fandom</a>
+                </nav>
+            </div>
+
+            <div class="topbar-right">
+                <a href="crypto-dashboard.html" class="currency-pill" title="Crypto dashboard">
+                    <i class="fa-solid fa-coins coin-icon" aria-hidden="true"></i>
+                    <span>28,395</span>
+                </a>
+                <div class="utility-folder" id="utilityFolder">
+                    <button class="icon-btn utility-folder-toggle" type="button" aria-label="Open utility folder" aria-expanded="false"><i class="fa-solid fa-folder" aria-hidden="true"></i></button>
+                    <div class="utility-menu" aria-label="Utility actions">
+                        <button class="icon-btn small-badge utility-trigger" data-panel="notifications" aria-label="Open notifications">1</button>
+                        <button class="icon-btn utility-trigger" data-panel="favorites" aria-label="Open favorites"><i class="fa-solid fa-heart" aria-hidden="true"></i></button>
+                        <button class="icon-btn power-btn utility-trigger" data-panel="account" aria-label="Open account controls"><i class="fa-solid fa-power-off" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="side-panel-overlay" id="sidePanelOverlay"></div>
+        <aside class="side-panel" id="utilityPanel" aria-hidden="true">
+            <div class="side-panel-header">
+                <div>
+                    <span class="side-panel-kicker">Quick access</span>
+                    <h3 id="panelTitle">Notifications</h3>
+                </div>
+                <button type="button" class="close-panel-btn" aria-label="Close panel"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+            </div>
+
+            <nav class="panel-tabs" aria-label="Utility panels">
+                <button class="panel-tab is-active" data-panel="notifications" type="button">Notifications</button>
+                <button class="panel-tab" data-panel="favorites" type="button">Favorites</button>
+                <button class="panel-tab" data-panel="account" type="button">Account</button>
+            </nav>
+
+            <div class="panel-content">
+                <div class="panel-view is-active" data-panel-content="notifications">
+                    <div class="panel-item"><strong>New squad invite</strong><span>TrumP 2020! requested a match for tonight.</span></div>
+                    <div class="panel-item"><strong>Reward ready</strong><span>Your weekly loot crate has been unlocked and is waiting for collection.</span></div>
+                    <div class="panel-item"><strong>Stream reminder</strong><span>Quartero's curious match starts in 42 minutes.</span></div>
+                </div>
+
+                <div class="panel-view" data-panel-content="favorites">
+                    <div class="panel-item"><strong>Favorite heroes</strong><span>Nova Vex, Kairo, and Aster were added to your pinned set.</span></div>
+                    <div class="panel-item"><strong>Saved builds</strong><span>Three loadouts are stored for quick switching before your next game.</span></div>
+                    <div class="panel-item"><strong>Watch list</strong><span>Top players and streamers are pinned for live updates.</span></div>
+                </div>
+
+                <div class="panel-view" data-panel-content="account">
+                    <div class="panel-item"><strong>Player</strong><span>Kuzumato <i class="fa-solid fa-circle" aria-hidden="true"></i> [code]</span></div>
+                    <div class="account-actions">
+                        <button type="button">View profile</button>
+                        <button type="button">Account settings</button>
+                        <button type="button">Log out</button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="market-ticker" role="region" aria-label="Market ticker">
+            <div class="ticker-item"><span class="sym">USD/PHP</span> <span class="up">+0.10%</span></div>
+            <div class="ticker-item"><span class="sym">BTC</span> <span class="down">-1.37%</span></div>
+            <div class="ticker-item"><span class="sym">ETH</span> <span class="down">-1.24%</span></div>
+            <div class="ticker-item"><span class="sym">BNB</span> <span class="down">-0.59%</span></div>
+            <div class="search-inline"><input type="search" placeholder="Search stocks, ETFs & more"></div>
+        </div>
+
+        <main class="section-dashboard-content">
+            <section class="center-stage">
+                <div class="section-hero">
+                    <div class="section-tag">Crypto</div>
+                    <h1>Crypto Overview</h1>
+                    <p>Track your in-app token balance and recent market-like movements.</p>
+                </div>
+
+                <div class="section-grid">
+                    <article class="section-card">
+                        <h3>Your Balance</h3>
+                        <div class="balance">
+                            <i class="fa-solid fa-circle-dollar-sign" aria-hidden="true"></i>
+                            <div class="balance-number">28,395 VEQ</div>
+                            <div class="balance-usd">≈ $12,845.00</div>
+                        </div>
+                    </article>
+
+                    <article class="section-card">
+                        <h3>Recent Activity</h3>
+                        <ul class="activity-list">
+                            <li>Received 1,200 VEQ — Loot crate</li>
+                            <li>Sent 500 VEQ — Market trade</li>
+                            <li>Reward claimed — Weekly login</li>
+                        </ul>
+                    </article>
+
+                    <article class="section-card">
+                        <h3>Quick Actions</h3>
+                        <div class="actions">
+                            <button class="btn ghost"><i class="fa-solid fa-arrow-right-to-bracket" aria-hidden="true"></i> Deposit</button>
+                                                        <button class="btn ghost"><i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i> Withdraw</button>
+                                                        <button class="btn primary"><i class="fa-solid fa-exchange-alt" aria-hidden="true"></i> Trade</button>
+                        </div>
+                    </article>
+
+                    <article class="section-card" id="live-crypto">
+                        <h3>Live Market (Nationwide)</h3>
+
+                        <div class="live-controls">
+                            <label>Per page:
+                                <select id="perPage">
+                                    <option value="25">25</option>
+                                    <option value="50" selected>50</option>
+                                    <option value="100">100</option>
+                                    <option value="250">250</option>
+                                </select>
+                            </label>
+
+                            <label>Search:
+                                <input id="coinSearch" placeholder="Filter by name or symbol">
+                            </label>
+
+                            <div class="pagination">
+                                <button id="prevPage" class="btn">Prev</button>
+                                <span id="pageInfo">Page 1</span>
+                                <button id="nextPage" class="btn">Next</button>
+                            </div>
+                        </div>
+
+                        <div class="live-market-grid">
+                            <div class="market-brief">
+                                <div class="hero-img" id="marketHero">
+                                    <div class="hero-overlay">
+                                        <div class="card-kicker">Market Brief</div>
+                                        <h4>Explainer: What moved markets today</h4>
+                                        <p>Quick summary of the most important market movements, headlines, and on-chain signals.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="market-summary">
+                                <div class="index-cards">
+                                    <div class="index-card">
+                                        <div class="index-title">PSEI Index</div>
+                                        <div class="index-value">6,309.99</div>
+                                        <div class="index-delta positive">+21.74 (+0.35%)</div>
+                                    </div>
+                                    <div class="index-card">
+                                        <div class="index-title">FTSE 100</div>
+                                        <div class="index-value">10,772.67</div>
+                                        <div class="index-delta negative">-60.48 (-0.56%)</div>
+                                    </div>
+                                    <div class="index-card">
+                                        <div class="index-title">Nikkei 225</div>
+                                        <div class="index-value">68,713.80</div>
+                                        <div class="index-delta positive">+405.21 (+0.59%)</div>
+                                    </div>
+                                </div>
+
+                                <div class="market-layer">
+                                    <h4>Top Coin Live Chart</h4>
+                                    <div class="chart-wrap small">
+                                        <canvas id="marketChart" height="140"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table-wrap">
+                            <table class="crypto-table" aria-live="polite">
+                                <thead>
+                                    <tr><th>Coin</th><th>Price (USD)</th><th>24h</th><th>Market Cap</th></tr>
+                                </thead>
+                                <tbody id="cryptoTableBody">
+                                    <tr><td colspan="4">Loading…</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="feed-meta">Last updated: <span id="cryptoLastUpdated">—</span></div>
+
+                        <!-- Coin detail slide-over layer -->
+                        <aside class="coin-layer" id="coinLayer" aria-hidden="true">
+                            <button class="close-btn" id="coinLayerClose" aria-label="Close">&times;</button>
+                            <div class="coin-content">
+                                <div class="coin-header">
+                                    <img id="coinIcon" src="" alt="">
+                                    <div class="coin-meta">
+                                        <div id="coinName" style="font-weight:700"></div>
+                                        <div id="coinSymbol" style="color:rgba(237,246,255,0.75)"></div>
+                                    </div>
+                                </div>
+
+                                <div class="coin-stats">
+                                    <div class="stat" id="coinPrice">—</div>
+                                    <div class="stat" id="coinChange">—</div>
+                                    <div class="stat" id="coinMarketCap">—</div>
+                                </div>
+
+                                <div class="coin-chart">
+                                    <canvas id="coinChart"></canvas>
+                                </div>
+
+                                <div id="coinDesc" style="margin-top:12px;color:rgba(237,246,255,0.85);font-size:13px"></div>
+                            </div>
+                        </aside>
+                    </article>
+
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="js/crypto.js"></script>
+</body>
+</html>

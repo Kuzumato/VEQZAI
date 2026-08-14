@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,7 +6,6 @@
   <title>Terms of Service | VEQZAI</title>
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/css/legal-terms.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <nav>
@@ -16,7 +15,7 @@
 
   <main>
     <h1>Terms of Service</h1>
-    <p class="subtitle"><i class="fa-solid fa-gem" aria-hidden="true"></i> Please read these terms carefully before using VEQZAI <i class="fa-solid fa-gem" aria-hidden="true"></i></p>
+    <p class="subtitle">◆ Please read these terms carefully before using VEQZAI ◆</p>
 
     <h2>1. Agreement to Terms</h2>
     <p>By accessing and using the VEQZAI gaming platform (the "Service"), you agree to be bound by these Terms of Service. If you do not agree to abide by the above, please do not use this service.</p>
@@ -86,4 +85,3 @@
   </footer>
 </body>
 </html>
-

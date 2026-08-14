@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="dashboard-shell">
@@ -28,16 +29,16 @@
             </div>
 
             <div class="topbar-right">
-                <div class="currency-pill">
-                    <span class="coin-icon">â—‰</span>
+                <a href="crypto-dashboard.html" class="currency-pill" title="Crypto dashboard">
+                    <i class="fa-solid fa-coins coin-icon" aria-hidden="true"></i>
                     <span>28,395</span>
-                </div>
+                </a>
                 <div class="utility-folder" id="utilityFolder">
-                    <button class="icon-btn utility-folder-toggle" type="button" aria-label="Open utility folder">â–£</button>
+                    <button class="icon-btn utility-folder-toggle" type="button" aria-label="Open utility folder" aria-expanded="false"><i class="fa-solid fa-folder" aria-hidden="true"></i></button>
                     <div class="utility-menu" aria-label="Utility actions">
                         <button class="icon-btn small-badge utility-trigger" data-panel="notifications" aria-label="Open notifications">1</button>
-                        <button class="icon-btn utility-trigger" data-panel="favorites" aria-label="Open favorites">âœ¦</button>
-                        <button class="icon-btn power-btn utility-trigger" data-panel="account" aria-label="Open account controls">â—Œ</button>
+                        <button class="icon-btn utility-trigger" data-panel="favorites" aria-label="Open favorites"><i class="fa-solid fa-heart" aria-hidden="true"></i></button>
+                        <button class="icon-btn power-btn utility-trigger" data-panel="account" aria-label="Open account controls"><i class="fa-solid fa-power-off" aria-hidden="true"></i></button>
                     </div>
                 </div>
             </div>
@@ -50,7 +51,7 @@
                     <span class="side-panel-kicker">Quick access</span>
                     <h3 id="panelTitle">Notifications</h3>
                 </div>
-                <button type="button" class="close-panel-btn" aria-label="Close panel">âœ•</button>
+                <button type="button" class="close-panel-btn" aria-label="Close panel"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
             </div>
 
             <nav class="panel-tabs" aria-label="Utility panels">
@@ -73,7 +74,7 @@
                 </div>
 
                 <div class="panel-view" data-panel-content="account">
-                    <div class="panel-item"><strong>Player</strong><span>Kuzumato â€¢ [code]</span></div>
+                    <div class="panel-item"><strong>Player</strong><span>Kuzumato <i class="fa-solid fa-circle" aria-hidden="true"></i> [code]</span></div>
                     <div class="account-actions">
                         <button type="button">View profile</button>
                         <button type="button">Account settings</button>
@@ -168,15 +169,32 @@
                 panel.classList.remove('is-open');
                 overlay.classList.remove('is-open');
                 panel.setAttribute('aria-hidden', 'true');
+                const utilityMenu = utilityFolder ? utilityFolder.querySelector('.utility-menu') : null;
                 if (utilityFolder) {
                     utilityFolder.classList.remove('is-open');
+                }
+                if (utilityMenu) {
+                    utilityMenu.setAttribute('aria-hidden', 'true');
+                }
+                if (utilityFolderToggle) {
+                    utilityFolderToggle.setAttribute('aria-expanded', 'false');
                 }
             }
 
             if (utilityFolderToggle) {
+                const utilityMenu = utilityFolder ? utilityFolder.querySelector('.utility-menu') : null;
+                utilityFolderToggle.setAttribute('aria-expanded', (utilityFolder && utilityFolder.classList.contains('is-open')) ? 'true' : 'false');
+                if (utilityMenu) utilityMenu.setAttribute('aria-hidden', (utilityFolder && utilityFolder.classList.contains('is-open')) ? 'false' : 'true');
                 utilityFolderToggle.addEventListener('click', function () {
                     if (utilityFolder) {
-                        utilityFolder.classList.toggle('is-open');
+                        const isOpen = utilityFolder.classList.toggle('is-open');
+                        utilityFolderToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                        if (utilityMenu) utilityMenu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+                        if (isOpen && panel && panel.classList.contains('is-open')) {
+                            panel.classList.remove('is-open');
+                            overlay.classList.remove('is-open');
+                            panel.setAttribute('aria-hidden', 'true');
+                        }
                     }
                 });
             }
@@ -186,6 +204,9 @@
                     openPanel(this.dataset.panel);
                     if (utilityFolder) {
                         utilityFolder.classList.remove('is-open');
+                    }
+                    if (utilityFolderToggle) {
+                        utilityFolderToggle.setAttribute('aria-expanded', 'false');
                     }
                 });
             });
@@ -208,4 +229,7 @@
     </script>
 </body>
 </html>
+
+
+
 

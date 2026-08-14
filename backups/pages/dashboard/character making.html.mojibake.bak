@@ -7,13 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <link rel="stylesheet" href="../../assets/css/character-making.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1><i class="fa-solid fa-heart" aria-hidden="true"></i> ANIME CHARACTER CREATOR <i class="fa-solid fa-heart" aria-hidden="true"></i></h1>
+            <h1>âœ¦ ANIME CHARACTER CREATOR âœ¦</h1>
             <p>Craft your unique anime hero for VEQZAI</p>
         </div>
 
@@ -344,7 +343,7 @@
     <!-- Success Modal -->
     <div class="modal" id="successModal">
         <div class="modal-content">
-            <h2><i class="fa-solid fa-heart" aria-hidden="true"></i> Character Saved! <i class="fa-solid fa-heart" aria-hidden="true"></i></h2>
+            <h2>âœ¦ Character Saved! âœ¦</h2>
             <p id="successMessage">Your character has been successfully saved to your account.</p>
             <div class="modal-buttons">
                 <button class="btn btn-secondary" data-action="close-modal" data-modal-id="successModal">Edit More</button>
@@ -356,6 +355,4 @@
     <script src="../../assets/js/character-creator.js"></script>
 </body>
 </html>
-
-
 

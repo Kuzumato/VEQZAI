@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
@@ -7,15 +7,14 @@
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;800&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="../../assets/css/dashboard.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="assets/css/dashboard.css">
 </head>
 <body>
    <div class="dashboard-shell">
        <header class="topbar">
            <div class="topbar-left">
                <a href="dashboard.html" class="brand-block" aria-label="Back to main dashboard">
-                   <img src="../../assets/images/LOGO.png" alt="VEQZAI logo" class="brand-logo">
+                   <img src="assets/images/LOGO.png" alt="VEQZAI logo" class="brand-logo">
                </a>
 
                <nav class="main-nav" aria-label="Main navigation">
@@ -29,16 +28,16 @@
            </div>
 
            <div class="topbar-right">
-               <a href="crypto-dashboard.html" class="currency-pill" title="Crypto dashboard">
-                   <i class="fa-solid fa-coins coin-icon" aria-hidden="true"></i>
+               <div class="currency-pill">
+                   <span class="coin-icon">◉</span>
                    <span>28,395</span>
-               </a>
+               </div>
                <div class="utility-folder" id="utilityFolder">
-                   <button class="icon-btn utility-folder-toggle" type="button" aria-label="Open utility folder" aria-expanded="false"><i class="fa-solid fa-folder" aria-hidden="true"></i></button>
+                   <button class="icon-btn utility-folder-toggle" type="button" aria-label="Open utility folder">▣</button>
                    <div class="utility-menu" aria-label="Utility actions">
                        <button class="icon-btn small-badge utility-trigger" data-panel="notifications" aria-label="Open notifications">1</button>
-                       <button class="icon-btn utility-trigger" data-panel="favorites" aria-label="Open favorites"><i class="fa-solid fa-heart" aria-hidden="true"></i></button>
-                       <button class="icon-btn power-btn utility-trigger" data-panel="account" aria-label="Open account controls"><i class="fa-solid fa-power-off" aria-hidden="true"></i></button>
+                       <button class="icon-btn utility-trigger" data-panel="favorites" aria-label="Open favorites">✦</button>
+                       <button class="icon-btn power-btn utility-trigger" data-panel="account" aria-label="Open account controls">◌</button>
                    </div>
                </div>
            </div>
@@ -51,7 +50,7 @@
                    <span class="side-panel-kicker">Quick access</span>
                    <h3 id="panelTitle">Notifications</h3>
                </div>
-               <button type="button" class="close-panel-btn" aria-label="Close panel"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+               <button type="button" class="close-panel-btn" aria-label="Close panel">✕</button>
            </div>
 
            <nav class="panel-tabs" aria-label="Utility panels">
@@ -74,7 +73,7 @@
                </div>
 
                <div class="panel-view" data-panel-content="account">
-                   <div class="panel-item"><strong>Player</strong><span>Kuzumato <i class="fa-solid fa-circle" aria-hidden="true"></i> [code]</span></div>
+                   <div class="panel-item"><strong>Player</strong><span>Kuzumato • [code]</span></div>
                    <div class="account-actions">
                        <button type="button">View profile</button>
                        <button type="button">Account settings</button>
@@ -104,7 +103,7 @@
                </article>
 
                <article class="section-card">
-                   <div class="card-kicker"><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+                   <div class="card-kicker">★</div>
                    <h2>Featured Characters</h2>
                    <p>Discover community favorites and the most-loved characters being reimagined across fan content and cosplay.</p>
                    <ul>
@@ -115,7 +114,7 @@
                </article>
 
                <article class="section-card">
-                   <div class="card-kicker"><i class="fa-solid fa-power-off" aria-hidden="true"></i></div>
+                   <div class="card-kicker">◌</div>
                    <h2>Top Fandoms</h2>
                    <p>Follow the communities gaining momentum and see which worlds are currently driving the strongest fan energy.</p>
                    <ul>
@@ -130,7 +129,7 @@
 
    <script>
        document.addEventListener('DOMContentLoaded', function () {
-           const loginPage = '../auth/login/login.html';
+           const loginPage = 'pages/auth/login/login.html';
            if (sessionStorage.getItem('loggedIn') !== 'true') {
                window.location.href = loginPage;
                return;
@@ -169,32 +168,15 @@
                panel.classList.remove('is-open');
                overlay.classList.remove('is-open');
                panel.setAttribute('aria-hidden', 'true');
-               const utilityMenu = utilityFolder ? utilityFolder.querySelector('.utility-menu') : null;
                if (utilityFolder) {
                    utilityFolder.classList.remove('is-open');
-               }
-               if (utilityMenu) {
-                   utilityMenu.setAttribute('aria-hidden', 'true');
-               }
-               if (utilityFolderToggle) {
-                   utilityFolderToggle.setAttribute('aria-expanded', 'false');
                }
            }
 
            if (utilityFolderToggle) {
-               const utilityMenu = utilityFolder ? utilityFolder.querySelector('.utility-menu') : null;
-               utilityFolderToggle.setAttribute('aria-expanded', (utilityFolder && utilityFolder.classList.contains('is-open')) ? 'true' : 'false');
-               if (utilityMenu) utilityMenu.setAttribute('aria-hidden', (utilityFolder && utilityFolder.classList.contains('is-open')) ? 'false' : 'true');
                utilityFolderToggle.addEventListener('click', function () {
                    if (utilityFolder) {
-                       const isOpen = utilityFolder.classList.toggle('is-open');
-                       utilityFolderToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-                       if (utilityMenu) utilityMenu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
-                       if (isOpen && panel && panel.classList.contains('is-open')) {
-                           panel.classList.remove('is-open');
-                           overlay.classList.remove('is-open');
-                           panel.setAttribute('aria-hidden', 'true');
-                       }
+                       utilityFolder.classList.toggle('is-open');
                    }
                });
            }
@@ -226,8 +208,4 @@
    </script>
 </body>
 </html>
-
-
-
-
 
