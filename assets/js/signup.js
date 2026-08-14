@@ -58,13 +58,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Save (simulate)
+        // Keep KYC and game preferences persistent, but store auth identifiers in sessionStorage
         localStorage.setItem('kycCompleted', 'true');
         localStorage.setItem('kycName', fullName);
         localStorage.setItem('gameSignup', 'true');
         localStorage.setItem('gameUser', username);
-        localStorage.setItem('userId', 'user_' + Date.now());
-        localStorage.setItem('authToken', 'token_' + Date.now());
-        localStorage.setItem('loginTime', new Date().toISOString());
+        sessionStorage.setItem('userId', 'user_' + Date.now());
+        sessionStorage.setItem('authToken', 'token_' + Date.now());
+        sessionStorage.setItem('loginTime', new Date().toISOString());
 
         successMsg.textContent = 'Sign up and KYC completed! Redirecting...';
         successMsg.style.display = 'block';

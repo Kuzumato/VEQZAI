@@ -914,12 +914,12 @@ function capitalizeFirst(str) {
 
 function getUserIdFromSession() {
     // This should get the user ID from the session/auth system
-    return localStorage.getItem('userId') || 'unknown';
+    return sessionStorage.getItem('userId') || 'unknown';
 }
 
 function getAuthToken() {
     // This should get the auth token from the session/auth system
-    return localStorage.getItem('authToken') || '';
+    return sessionStorage.getItem('authToken') || '';
 }
 
 // Initialize on page load

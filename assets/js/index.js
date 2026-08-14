@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     element.addEventListener('click', function() {
       const href = element.dataset.href;
       const isLoginTarget = href === 'pages/auth/login/login.html';
-      const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+      const isLoggedIn = sessionStorage.getItem('loggedIn') === 'true';
 
       if (isLoginTarget && isLoggedIn) {
         window.location.href = 'pages/dashboard/dashboard.html';

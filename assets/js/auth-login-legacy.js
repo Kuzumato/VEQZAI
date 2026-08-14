@@ -14,11 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const validPassword = "12345";
 
         if (username === validUsername && password === validPassword) {
-            // Store user session data
-            localStorage.setItem('userId', 'user_001');
-            localStorage.setItem('authToken', 'token_' + Date.now());
-            localStorage.setItem('username', username);
-            localStorage.setItem('loginTime', new Date().toISOString());
+            // Store user session data in sessionStorage so closing the browser requires re-login
+            sessionStorage.setItem('userId', 'user_001');
+            sessionStorage.setItem('authToken', 'token_' + Date.now());
+            sessionStorage.setItem('username', username);
+            sessionStorage.setItem('loginTime', new Date().toISOString());
             
             window.location.href = "../../dashboard/dashboard.html"; // Redirect to dashboard
         } else {

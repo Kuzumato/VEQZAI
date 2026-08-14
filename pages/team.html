@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Site Team — VEQZAI</title>
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+  <main style="max-width:900px;margin:48px auto;font-family:Arial,Helvetica,sans-serif;line-height:1.5;">
+    <h1>Website Team & Responsibilities</h1>
+    <p>This page lists owners for the website launch and the authentication/session policy (no persistent/"easy" login by default).</p>
+
+    <section>
+      <h2>Team assignments</h2>
+      <ul>
+        <li><strong>Alex Morgan — Product Owner</strong>: overall coordination and acceptance criteria.</li>
+        <li><strong>Carlos Reyes — Backend Engineer</strong>: auth endpoints, session handling (session-scoped tokens), logout behavior.</li>
+        <li><strong>Priya Patel — Frontend Engineer</strong>: sign-in UI, forgot-password UI, remove persistent login, ensure sessionStorage is used for auth tokens.</li>
+        <li><strong>Jordan Lee — Security / Privacy Officer</strong>: security hardening, privacy review, token policies, audit logging.</li>
+        <li><strong>Taylor Kim — QA Engineer</strong>: QA test cases, e2e validation that closing the browser requires re-login.</li>
+        <li><strong>Riley Chen — DevOps / SRE</strong>: monitoring and alerts for auth endpoints.</li>
+        <li><strong>Samira Khan — UX / Content Writer</strong>: privacy page copy, email templates and user guidance.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Auth policy (summary)</h2>
+      <ul>
+        <li>No persistent/"easy" login by default — authentication uses session-scoped storage so closing the browser requires re-login.</li>
+        <li>Logout clears session storage immediately.</li>
+        <li>Forgot-password tokens are single-use and time-limited.</li>
+        <li>All auth endpoints must enforce HTTPS, rate limiting and CSRF protections.</li>
+      </ul>
+    </section>
+
+    <p style="margin-top:24px;color:#666;font-size:0.95rem">If you are listed here and need a different assignment, contact the Product Owner: Alex Morgan.</p>
+  </main>
+</body>
+</html>

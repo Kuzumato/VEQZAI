@@ -15,10 +15,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const validPassword = "12345";
 
         if (username === validUsername && password === validPassword) {
-          localStorage.setItem('loggedIn', 'true');
-          localStorage.setItem('username', username);
-          localStorage.setItem('userId', 'demo-user');
-          localStorage.setItem('authToken', 'demo-token');
+          // Use sessionStorage so login does not persist after browser is closed
+          sessionStorage.setItem('loggedIn', 'true');
+          sessionStorage.setItem('username', username);
+          sessionStorage.setItem('userId', 'demo-user');
+          sessionStorage.setItem('authToken', 'demo-token');
           window.location.href = "../../dashboard/dashboard.html";
         } else {
           errorMsg.textContent = "Invalid username or password. Try admin / 12345";

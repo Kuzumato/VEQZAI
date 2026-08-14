@@ -237,16 +237,16 @@
         document.addEventListener('DOMContentLoaded', function () {
             const loginPage = '../auth/login/login.html';
 
-            if (localStorage.getItem('loggedIn') !== 'true') {
+            if (sessionStorage.getItem('loggedIn') !== 'true') {
                 window.location.href = loginPage;
                 return;
             }
 
             function redirectToLogin() {
-                localStorage.removeItem('loggedIn');
-                localStorage.removeItem('username');
-                localStorage.removeItem('userId');
-                localStorage.removeItem('authToken');
+                sessionStorage.removeItem('loggedIn');
+                sessionStorage.removeItem('username');
+                sessionStorage.removeItem('userId');
+                sessionStorage.removeItem('authToken');
                 window.location.href = loginPage;
             }
 

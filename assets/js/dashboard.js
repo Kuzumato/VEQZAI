@@ -403,11 +403,11 @@ function capitalizeFirst(str) {
 }
 
 function getUserIdFromSession() {
-    return localStorage.getItem('userId');
+    return sessionStorage.getItem('userId');
 }
 
 function getAuthToken() {
-    return localStorage.getItem('authToken');
+    return sessionStorage.getItem('authToken');
 }
 
 // Initialize dashboard on page load

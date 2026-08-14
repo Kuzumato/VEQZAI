@@ -169,11 +169,12 @@
         // Logout functionality
         document.querySelector('.logout-btn').addEventListener('click', function() {
             if(confirm('Are you sure you want to logout?')) {
-                // Clear session data
-                localStorage.removeItem('userId');
-                localStorage.removeItem('authToken');
-                localStorage.removeItem('username');
-                localStorage.removeItem('loginTime');
+                // Clear auth/session data from sessionStorage so logout is immediate
+                sessionStorage.removeItem('userId');
+                sessionStorage.removeItem('authToken');
+                sessionStorage.removeItem('username');
+                sessionStorage.removeItem('loginTime');
+                // Keep persistent KYC/game data in localStorage; remove if desired
                 localStorage.removeItem('kycCompleted');
                 localStorage.removeItem('kycName');
                 localStorage.removeItem('gameSignup');

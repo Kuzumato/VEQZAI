@@ -1,0 +1,14 @@
+Hi {{assignee_name}},
+
+You have been assigned ownership of the following website task:
+
+{{task_title}}
+
+{{task_description}}
+
+Priority: {{priority}}
+
+Please confirm you accept this assignment or request a reassignment by replying to the Product Owner (Alex Morgan).
+
+Thanks,
+VEQZAI Team
