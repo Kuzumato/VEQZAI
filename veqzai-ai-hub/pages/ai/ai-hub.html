@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VEQZAI | AI Hub</title>
+  <meta name="description" content="Smart matchmaking, game recommendations, chat moderation and a support assistant for VEQZAI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/index.css">
+  <link rel="stylesheet" href="../../assets/css/ai-hub.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <nav>
+    <a class="logo" href="../../index.html">
+      <img src="../../assets/images/LOGO.png" alt="VEQZAI">
+      <span>VEQZAI</span>
+    </a>
+    <div class="nav-right">
+      <a class="btn-ghost nav-link-btn" href="../../index.html">Home</a>
+      <a class="btn-primary nav-link-btn" href="../dashboard/dashboard.html">Dashboard</a>
+    </div>
+  </nav>
+
+  <header class="ai-hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="ai-hero-inner">
+      <div class="hero-eyebrow"><i class="fa-solid fa-microchip" aria-hidden="true"></i> Smart Play</div>
+      <h1 class="ai-title"><span class="line1">VEQZAI</span> <span class="line2">AI Hub</span></h1>
+      <p class="ai-lede">Fairer matches, games you will actually like, safer chat and instant answers. Try each tool live.</p>
+      <p class="ai-note"><i class="fa-solid fa-lock" aria-hidden="true"></i> Everything on this page runs in your browser. Nothing you type is sent anywhere.</p>
+    </div>
+  </header>
+
+  <main class="ai-main">
+    <div class="ai-tabs" role="tablist" aria-label="AI tools">
+      <button role="tab" id="tab-matchmaking" data-tab="matchmaking" aria-controls="panel-matchmaking" aria-selected="true"><i class="fa-solid fa-people-arrows" aria-hidden="true"></i> Matchmaking</button>
+      <button role="tab" id="tab-recommendations" data-tab="recommendations" aria-controls="panel-recommendations" aria-selected="false" tabindex="-1"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Recommendations</button>
+      <button role="tab" id="tab-moderation" data-tab="moderation" aria-controls="panel-moderation" aria-selected="false" tabindex="-1"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Moderation</button>
+      <button role="tab" id="tab-assistant" data-tab="assistant" aria-controls="panel-assistant" aria-selected="false" tabindex="-1"><i class="fa-solid fa-headset" aria-hidden="true"></i> Assistant</button>
+    </div>
+
+    <!-- MATCHMAKING -->
+    <div id="panel-matchmaking" role="tabpanel" aria-labelledby="tab-matchmaking" class="ai-panel">
+      <div class="panel-intro">
+        <h2>Smart matchmaking &amp; skill rating</h2>
+        <p>An Elo-style rating predicts who wins, then the matcher balances skill gap, ping and (for squads) roles. The longer you queue, the wider it searches.</p>
+      </div>
+      <div class="ai-layout">
+        <div class="ai-card controls">
+          <div class="seg" role="group" aria-label="What are you looking for?">
+            <button type="button" data-mm-mode="opponent" aria-pressed="true">Opponent</button>
+            <button type="button" data-mm-mode="teammate" aria-pressed="false">Teammate</button>
+          </div>
+          <div class="field">
+            <label for="mm-rating">Your rating <output id="mm-rating-out" for="mm-rating">1500</output></label>
+            <input type="range" id="mm-rating" min="800" max="2600" step="10" value="1500">
+          </div>
+          <div class="field">
+            <label for="mm-region">Your region</label>
+            <select id="mm-region">
+              <option value="NA">North America</option>
+              <option value="EU">Europe</option>
+              <option value="ASIA">Asia</option>
+              <option value="SA">South America</option>
+              <option value="OCE">Oceania</option>
+            </select>
+          </div>
+          <div class="field" id="mm-role-field" hidden>
+            <label for="mm-role">Your role</label>
+            <select id="mm-role">
+              <option>Tank</option>
+              <option selected>Damage</option>
+              <option>Support</option>
+              <option>Flex</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="mm-wait">Time in queue <output id="mm-wait-out" for="mm-wait">10s</output></label>
+            <input type="range" id="mm-wait" min="0" max="60" step="1" value="10">
+          </div>
+          <div id="mm-profile" class="profile" aria-live="polite"></div>
+          <button type="button" class="btn-ghost wide" id="mm-reset">Reset rating</button>
+        </div>
+        <div class="ai-card results">
+          <div class="results-head">
+            <h3>Best matches</h3>
+            <span class="sub" id="mm-summary" aria-live="polite"></span>
+          </div>
+          <ol class="match-list" id="mm-results"></ol>
+          <div class="outcome" id="mm-outcome" role="status" aria-live="polite"></div>
+          <p class="fine">Players here are simulated. Win chance comes from the Elo formula; the result of a played match is rolled from that chance and your rating then updates.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RECOMMENDATIONS -->
+    <div id="panel-recommendations" role="tabpanel" aria-labelledby="tab-recommendations" class="ai-panel" hidden>
+      <div class="panel-intro">
+        <h2>Game recommendations</h2>
+        <p>Pick games you enjoy, add a mood, or nudge the sliders. Suggestions update instantly and say why they were picked.</p>
+      </div>
+      <div class="ai-layout">
+        <div class="ai-card controls">
+          <h3 class="label-h">Games you like</h3>
+          <div class="picks" id="rec-liked"></div>
+          <h3 class="label-h">In the mood for</h3>
+          <div class="chips" id="rec-moods"></div>
+          <div class="field">
+            <label for="rec-competitive">Chill <span class="mid">↔</span> Competitive</label>
+            <input type="range" id="rec-competitive" min="0" max="100" value="50">
+          </div>
+          <div class="field">
+            <label for="rec-team">Solo <span class="mid">↔</span> With friends</label>
+            <input type="range" id="rec-team" min="0" max="100" value="50">
+          </div>
+          <button type="button" class="btn-ghost wide" id="rec-clear">Clear choices</button>
+        </div>
+        <div class="ai-card results">
+          <div class="results-head"><h3 id="rec-heading" aria-live="polite"></h3></div>
+          <ol class="rec-list" id="rec-results"></ol>
+          <p class="fine">The first five titles are on the home page; the rest are sample entries to show how the engine behaves.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODERATION -->
+    <div id="panel-moderation" role="tabpanel" aria-labelledby="tab-moderation" class="ai-panel" hidden>
+      <div class="panel-intro">
+        <h2>Chat moderation</h2>
+        <p>Messages are scored for harassment, threats, scams, personal info and spam, with plain-language reasons. It understands tricks like <q>f.u.c.k</q> and <q>l33t</q> but not game banter like <q>kill that boss</q>.</p>
+      </div>
+      <div class="ai-layout">
+        <div class="ai-card controls">
+          <h3 class="label-h">Try an example</h3>
+          <div class="chips" id="mod-examples"></div>
+          <form id="mod-form" class="compose" autocomplete="off">
+            <label for="mod-input" class="label-h">Write a message</label>
+            <textarea id="mod-input" rows="3" maxlength="400" placeholder="Type a chat message…"></textarea>
+            <button type="submit" class="btn-primary wide">Send to chat</button>
+          </form>
+          <div id="mod-analysis" class="analysis" aria-live="polite"></div>
+        </div>
+        <div class="ai-card results">
+          <div class="results-head">
+            <h3>Live chat</h3>
+            <label class="switch"><input type="checkbox" id="mod-modview"> Moderator view</label>
+          </div>
+          <ul class="feed" id="mod-feed" aria-live="polite" aria-label="Chat messages"></ul>
+          <div class="feed-actions"><button type="button" class="btn-ghost" id="mod-clear">Clear chat</button></div>
+          <p class="fine">Starter rules only. In production, keep word lists on the server, review held messages with real moderators and log decisions so players can appeal.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ASSISTANT -->
+    <div id="panel-assistant" role="tabpanel" aria-labelledby="tab-assistant" class="ai-panel" hidden>
+      <div class="panel-intro">
+        <h2>Support assistant</h2>
+        <p>Ask about accounts, the dashboard, matchmaking or staying safe. It answers from the VEQZAI help knowledge base and tells you when it is not sure instead of guessing.</p>
+      </div>
+      <div class="ai-card chat">
+        <ul class="bubbles" id="asst-log" aria-live="polite" aria-label="Conversation"></ul>
+        <div class="chips" id="asst-chips"></div>
+        <form id="asst-form" class="asst-form" autocomplete="off">
+          <label for="asst-input" class="sr-only">Ask a question</label>
+          <input type="text" id="asst-input" maxlength="240" placeholder="Ask a question…">
+          <button type="submit" class="btn-primary">Ask</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="../../VEQZAI.html">About</a>
+        <a href="../team.html">Support</a>
+        <a href="../../privacy.html">Privacy</a>
+        <a href="../../terms.html">Terms</a>
+        <a href="mailto:support@veqzai.com">Contact</a>
+      </div>
+      <div class="footer-bottom">&copy; 2025 VEQZAI. All rights reserved. | Play Without Limits.</div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/ai/ai-common.js"></script>
+  <script src="../../assets/js/ai/ai-matchmaking.js"></script>
+  <script src="../../assets/js/ai/ai-recommendations.js"></script>
+  <script src="../../assets/js/ai/ai-moderation.js"></script>
+  <script src="../../assets/js/ai/ai-assistant.js"></script>
+  <script src="../../assets/js/ai/ai-hub.js"></script>
+</body>
+</html>
