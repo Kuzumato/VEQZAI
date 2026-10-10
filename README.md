@@ -171,5 +171,4 @@ VEQZAI is released under the [GNU General Public License v3.0](LICENSE).
 
 © 2025 VEQZAI · Play Without Limits.
 
-</div># VEQZAI
-VEQZAI is built for people who want to create, compete, explore, and grow beyond traditional limits—turning ideas, skills, and technology into new possibilities.
+</div>
