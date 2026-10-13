@@ -417,6 +417,3 @@ footer {
 .fandom-card-spaced { margin-bottom: 20px; }
 .fandom-card-title { margin-top: 0; color: #fff; }
 .fandom-list { margin-top: 12px; }
-/* AI section cards are links */
-.ai-link { display: block; color: inherit; text-decoration: none; }
-.ai-link:focus-visible { outline: 2px solid var(--accent2); outline-offset: 2px; }
