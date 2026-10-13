@@ -1,158 +1,176 @@
-// Game recommendations using cosine similarity
-(function() {
-  const CATALOG = [
-    { title: 'Arcane Odyssey', tags: ['rpg', 'fantasy', 'single-player', 'story-driven', 'challenging'], image: '🎮' },
-    { title: 'Nexus', tags: ['action', 'competitive', 'multiplayer', 'team', 'fast-paced'], image: '⚔️' },
-    { title: 'Velocity', tags: ['racing', 'competitive', 'multiplayer', 'skill', 'fast-paced'], image: '🏎️' },
-    { title: 'Vortex', tags: ['shooter', 'competitive', 'multiplayer', 'team', 'tactical'], image: '👾' },
-    { title: 'Champion Pro', tags: ['sports', 'competitive', 'multiplayer', 'team', 'skill'], image: '⚽' },
-    { title: 'Mystic Realm', tags: ['rpg', 'fantasy', 'multiplayer', 'cooperative', 'story-driven'], image: '✨' },
-    { title: 'Cyber Breach', tags: ['shooter', 'sci-fi', 'competitive', 'single-player', 'strategic'], image: '🤖' },
-    { title: 'Puzzle Master', tags: ['puzzle', 'casual', 'single-player', 'relaxing', 'brain-teaser'], image: '🧩' },
+/* Game recommendations — content-based filtering.
+ * Each game is a weighted tag vector. We build a taste vector from the games you pick, the moods
+ * you select and the two sliders, then rank the catalog by cosine similarity, lightly blended
+ * with rating and popularity. Every result explains itself ("because you like…").
+ * Replace CATALOG with your real library (or fetch it) and the rest keeps working.
+ */
+(function () {
+  'use strict';
+  var AI = window.VeqzaiAI;
+
+  var TAGS = [
+    ['rpg', 'RPG'], ['action', 'Action'], ['racing', 'Racing'], ['shooter', 'Shooter'],
+    ['sports', 'Sports'], ['strategy', 'Strategy'], ['creative', 'Creative'], ['story', 'Story-driven'],
+    ['coop', 'Co-op'], ['solo', 'Solo'], ['competitive', 'Competitive'], ['relaxed', 'Relaxed'],
+    ['fastpaced', 'Fast-paced'], ['esports', 'Esports'], ['openworld', 'Open world']
+  ];
+  var TAG_LABEL = {};
+  TAGS.forEach(function (t) { TAG_LABEL[t[0]] = t[1]; });
+
+  // First five are the titles featured on the home page; the rest are sample entries.
+  var CATALOG = [
+    { id: 'arcane', title: 'Arcane Odyssey', icon: '🎮', genre: 'RPG', rating: 4.8, players: 2.4, tags: { rpg: 1, story: 0.9, openworld: 0.7, solo: 0.6, coop: 0.4, relaxed: 0.5 } },
+    { id: 'nexus', title: 'Nexus', icon: '⚔️', genre: 'Action', rating: 4.9, players: 5.2, tags: { action: 1, competitive: 0.8, fastpaced: 0.9, coop: 0.3, esports: 0.6 } },
+    { id: 'velocity', title: 'Velocity', icon: '🏎️', genre: 'Racing', rating: 4.6, players: 1.8, tags: { racing: 1, competitive: 0.7, fastpaced: 1, esports: 0.5, solo: 0.5 } },
+    { id: 'vortex', title: 'Vortex', icon: '👾', genre: 'Shooter', rating: 4.7, players: 3.1, tags: { shooter: 1, competitive: 0.9, fastpaced: 0.9, esports: 0.9, coop: 0.6 } },
+    { id: 'champion', title: 'Champion Pro', icon: '⚽', genre: 'Sports', rating: 4.5, players: 2.9, tags: { sports: 1, competitive: 0.8, coop: 0.6, esports: 0.7 } },
+    { id: 'hollow', title: 'Hollow Realms', icon: '🗡️', genre: 'RPG', rating: 4.4, players: 1.1, tags: { rpg: 1, coop: 0.8, story: 0.7, openworld: 0.8 } },
+    { id: 'pixel', title: 'Pixel Forge', icon: '🧱', genre: 'Creative', rating: 4.3, players: 0.9, tags: { creative: 1, relaxed: 1, solo: 0.7, coop: 0.5 } },
+    { id: 'skyline', title: 'Skyline Tactics', icon: '♟️', genre: 'Strategy', rating: 4.5, players: 1.4, tags: { strategy: 1, competitive: 0.8, esports: 0.6, solo: 0.4 } },
+    { id: 'drift', title: 'Drift Kings', icon: '🏁', genre: 'Racing', rating: 4.2, players: 0.8, tags: { racing: 1, fastpaced: 0.8, competitive: 0.6, relaxed: 0.2 } },
+    { id: 'signal', title: 'Last Signal', icon: '🔦', genre: 'Shooter', rating: 4.6, players: 2.0, tags: { shooter: 0.8, story: 0.9, solo: 0.8, action: 0.5 } },
+    { id: 'harbor', title: 'Cozy Harbor', icon: '🌊', genre: 'Sim', rating: 4.1, players: 0.6, tags: { relaxed: 1, creative: 0.6, solo: 0.8, openworld: 0.4 } },
+    { id: 'arena', title: 'Iron Arena', icon: '🥊', genre: 'Action', rating: 4.5, players: 1.7, tags: { action: 1, competitive: 1, fastpaced: 0.8, esports: 0.8 } }
   ];
 
-  const MOODS = [
-    { name: 'Chill', vector: { casual: 1, relaxing: 1, fast-paced: -1 } },
-    { name: 'Competitive', vector: { competitive: 1, skill: 1, casual: -1 } },
-    { name: 'Story', vector: { 'story-driven': 1, casual: 1, 'fast-paced': -0.5 } },
-    { name: 'Social', vector: { multiplayer: 1, team: 1, 'single-player': -1 } },
-  ];
+  function cosine(a, b) {
+    var dot = 0, na = 0, nb = 0, k;
+    for (k in a) {
+      na += a[k] * a[k];
+      if (b[k]) dot += a[k] * b[k];
+    }
+    for (k in b) nb += b[k] * b[k];
+    return na && nb ? dot / (Math.sqrt(na) * Math.sqrt(nb)) : 0;
+  }
 
-  function buildVector(tags) {
-    const v = {};
-    tags.forEach(t => v[t] = (v[t] || 0) + 1);
+  function add(vec, tag, w) {
+    vec[tag] = (vec[tag] || 0) + w;
+  }
+
+  /**
+   * @param {{liked:string[], moods:string[], competitive:number|null, team:number|null}} prefs
+   *   competitive/team are 0..1 or null when the slider is untouched.
+   */
+  function tasteVector(prefs) {
+    var v = {};
+    prefs.liked.forEach(function (id) {
+      var g = CATALOG.filter(function (c) { return c.id === id; })[0];
+      if (g) for (var t in g.tags) add(v, t, g.tags[t]);
+    });
+    prefs.moods.forEach(function (t) { add(v, t, 1.5); });
+    if (prefs.competitive !== null) {
+      add(v, 'competitive', prefs.competitive * 1.5);
+      add(v, 'relaxed', (1 - prefs.competitive) * 1.5);
+    }
+    if (prefs.team !== null) {
+      add(v, 'coop', prefs.team * 1.5);
+      add(v, 'solo', (1 - prefs.team) * 1.5);
+    }
     return v;
   }
 
-  function cosineSimilarity(v1, v2) {
-    const allKeys = new Set([...Object.keys(v1), ...Object.keys(v2)]);
-    let dot = 0, mag1 = 0, mag2 = 0;
-    allKeys.forEach(k => {
-      const a = v1[k] || 0;
-      const b = v2[k] || 0;
-      dot += a * b;
-      mag1 += a * a;
-      mag2 += b * b;
-    });
-    const denom = Math.sqrt(mag1) * Math.sqrt(mag2);
-    return denom === 0 ? 0 : dot / denom;
-  }
+  function recommend(prefs, limit) {
+    var taste = tasteVector(prefs);
+    var empty = Object.keys(taste).length === 0;
+    var maxPlayers = Math.max.apply(null, CATALOG.map(function (c) { return c.players; }));
 
-  function getRecommendations(likedGames, moods, competitive, soloTeam) {
-    let queryVector = {};
-    
-    likedGames.forEach(title => {
-      const game = CATALOG.find(g => g.title === title);
-      if (game) {
-        const gv = buildVector(game.tags);
-        Object.keys(gv).forEach(k => queryVector[k] = (queryVector[k] || 0) + gv[k]);
-      }
-    });
-    
-    moods.forEach(mood => {
-      const m = MOODS.find(x => x.name === mood);
-      if (m) {
-        Object.keys(m.vector).forEach(k => {
-          queryVector[k] = (queryVector[k] || 0) + m.vector[k];
-        });
-      }
-    });
-    
-    const comp = competitive / 100;
-    if (comp > 0.6) queryVector.competitive = (queryVector.competitive || 0) + 1;
-    else if (comp < 0.4) queryVector.casual = (queryVector.casual || 0) + 1;
-    
-    const team = soloTeam / 100;
-    if (team > 0.6) queryVector.team = (queryVector.team || 0) + 1;
-    else if (team < 0.4) queryVector['single-player'] = (queryVector['single-player'] || 0) + 1;
-    
-    return CATALOG
-      .map(game => ({
-        ...game,
-        score: cosineSimilarity(queryVector, buildVector(game.tags)),
-        reason: likedGames[0] ? `Because you like ${likedGames[0]}` : 'Popular pick',
-      }))
-      .sort((a, b) => b.score - a.score);
-  }
+    var scored = CATALOG.filter(function (g) {
+      return prefs.liked.indexOf(g.id) === -1;
+    }).map(function (g) {
+      var sim = cosine(taste, g.tags);
+      var rating = AI.clamp(g.rating - 4, 0, 1);
+      var pop = Math.log(1 + g.players) / Math.log(1 + maxPlayers);
+      var score = empty ? 0.6 * rating + 0.4 * pop : 0.75 * sim + 0.15 * rating + 0.1 * pop;
 
-  function renderRecommendation(game) {
-    const li = document.createElement('li');
-    li.className = 'recommendation-item';
-    li.innerHTML = `
-      <div class="rec-emoji">${game.image}</div>
-      <div class="rec-content">
-        <h4>${VeqzaiAI.escapeHtml(game.title)}</h4>
-        <p class="rec-tags">${game.tags.join(', ')}</p>
-        <p class="rec-reason">${VeqzaiAI.escapeHtml(game.reason)}</p>
-      </div>
-    `;
-    return li;
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    const gamePicker = document.getElementById('game-picker');
-    const moodChips = document.getElementById('mood-chips');
-    const compSlider = document.getElementById('competitive-slider');
-    const teamSlider = document.getElementById('solo-team-slider');
-    const btn = document.getElementById('get-recommendations-btn');
-    const recList = document.getElementById('recommendations-list');
-    const recTitle = document.getElementById('rec-title');
-
-    if (!gamePicker) return;
-
-    // Build game picker
-    CATALOG.slice(0, 5).forEach(game => {
-      const chip = document.createElement('button');
-      chip.type = 'button';
-      chip.className = 'chip';
-      chip.dataset.game = game.title;
-      chip.innerHTML = `${game.image} ${VeqzaiAI.escapeHtml(game.title)}`;
-      chip.addEventListener('click', function() {
-        this.classList.toggle('selected');
-        updateRecs();
+      // Explain: tags that contributed most, and the liked game that overlaps most.
+      var why = Object.keys(g.tags)
+        .filter(function (t) { return taste[t]; })
+        .sort(function (a, b) { return taste[b] * g.tags[b] - taste[a] * g.tags[a]; })
+        .slice(0, 2)
+        .map(function (t) { return TAG_LABEL[t]; });
+      var likedMatch = null, best = 0;
+      prefs.liked.forEach(function (id) {
+        var other = CATALOG.filter(function (c) { return c.id === id; })[0];
+        var s = other ? cosine(other.tags, g.tags) : 0;
+        if (s > best) { best = s; likedMatch = other; }
       });
-      gamePicker.appendChild(chip);
+      return { game: g, score: score, match: Math.round(AI.clamp(score, 0, 1) * 100), why: why, because: best > 0.35 ? likedMatch : null };
     });
 
-    // Build mood chips
-    MOODS.forEach(mood => {
-      const chip = document.createElement('button');
-      chip.type = 'button';
-      chip.className = 'chip';
-      chip.dataset.mood = mood.name;
-      chip.textContent = mood.name;
-      chip.addEventListener('click', function() {
-        this.classList.toggle('selected');
-        updateRecs();
-      });
-      moodChips.appendChild(chip);
-    });
+    scored.sort(function (a, b) { return b.score - a.score; });
+    return { trending: empty, items: scored.slice(0, limit || 5) };
+  }
 
-    function updateRecs() {
-      const liked = Array.from(gamePicker.querySelectorAll('.chip.selected'))
-        .map(c => c.dataset.game);
-      const moods = Array.from(moodChips.querySelectorAll('.chip.selected'))
-        .map(c => c.dataset.mood);
-      const comp = parseInt(compSlider.value);
-      const team = parseInt(teamSlider.value);
+  function init() {
+    var root = AI.$('#panel-recommendations');
+    if (!root) return;
 
-      const recs = getRecommendations(liked, moods, comp, team);
-      recList.innerHTML = '';
-      recs.forEach(r => recList.appendChild(renderRecommendation(r)));
+    var likedWrap = AI.$('#rec-liked', root);
+    var moodWrap = AI.$('#rec-moods', root);
+    var compEl = AI.$('#rec-competitive', root);
+    var teamEl = AI.$('#rec-team', root);
+    var outEl = AI.$('#rec-results', root);
+    var headEl = AI.$('#rec-heading', root);
+    var state = { liked: [], moods: [], competitive: null, team: null };
 
-      if (!liked.length) {
-        recTitle.textContent = 'Popular Right Now';
-      } else {
-        recTitle.textContent = `For You`;
-      }
+    likedWrap.innerHTML = CATALOG.map(function (g) {
+      return '<button type="button" class="pick" data-id="' + g.id + '" aria-pressed="false"><span class="pick-icon" aria-hidden="true">' +
+        g.icon + '</span><span>' + AI.escapeHtml(g.title) + '</span></button>';
+    }).join('');
+    moodWrap.innerHTML = TAGS.map(function (t) {
+      return '<button type="button" class="chip" data-tag="' + t[0] + '" aria-pressed="false">' + t[1] + '</button>';
+    }).join('');
+
+    function toggle(list, value, btn) {
+      var i = list.indexOf(value);
+      if (i === -1) list.push(value); else list.splice(i, 1);
+      btn.setAttribute('aria-pressed', String(i === -1));
     }
 
-    btn.addEventListener('click', updateRecs);
-    compSlider.addEventListener('input', updateRecs);
-    teamSlider.addEventListener('input', updateRecs);
+    function render() {
+      var r = recommend(state, 5);
+      headEl.textContent = r.trending ? 'Trending right now — pick a few things on the left to personalise' : 'Picked for you';
+      outEl.innerHTML = r.items.map(function (it, i) {
+        var reasons = '';
+        if (it.because) reasons += 'Because you like <strong>' + AI.escapeHtml(it.because.title) + '</strong>. ';
+        if (it.why.length && !r.trending) reasons += 'Matches: ' + it.why.join(', ') + '.';
+        if (r.trending) reasons = 'Popular and highly rated on the platform.';
+        return '<li class="rec-row">' +
+          '<span class="rank">' + (i + 1) + '</span>' +
+          '<span class="rec-icon" aria-hidden="true">' + it.game.icon + '</span>' +
+          '<div class="rec-body"><strong>' + AI.escapeHtml(it.game.title) + '</strong>' +
+          '<div class="sub">' + AI.escapeHtml(it.game.genre) + ' · ★ ' + it.game.rating.toFixed(1) + ' · ' + it.game.players + 'M active</div>' +
+          '<div class="why">' + reasons + '</div></div>' +
+          (r.trending ? '' : '<div class="match-pct"><strong>' + it.match + '%</strong><span>match</span></div>') +
+          '</li>';
+      }).join('');
+    }
 
-    updateRecs();
-  });
+    likedWrap.addEventListener('click', function (e) {
+      var b = e.target.closest('.pick');
+      if (!b) return;
+      toggle(state.liked, b.dataset.id, b);
+      render();
+    });
+    moodWrap.addEventListener('click', function (e) {
+      var b = e.target.closest('.chip');
+      if (!b) return;
+      toggle(state.moods, b.dataset.tag, b);
+      render();
+    });
+    compEl.addEventListener('input', function () { state.competitive = +compEl.value / 100; render(); });
+    teamEl.addEventListener('input', function () { state.team = +teamEl.value / 100; render(); });
+    AI.$('#rec-clear', root).addEventListener('click', function () {
+      state = { liked: [], moods: [], competitive: null, team: null };
+      AI.$$('[aria-pressed="true"]', root).forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+      compEl.value = 50;
+      teamEl.value = 50;
+      render();
+    });
 
-  window.VeqzaiAI.recommendations = { getRecommendations };
+    render();
+  }
+
+  AI.recommendations = { recommend: recommend, catalog: CATALOG, cosine: cosine };
+  document.addEventListener('DOMContentLoaded', init);
 })();
