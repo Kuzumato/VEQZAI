@@ -13,6 +13,10 @@
   --danger: #ef4444;
   --success: #10b981;
   --gold: #f59e0b;
+  --veqzai-green: #10e0a4;
+  --veqzai-soft: #b6f6dc;
+  --veqzai-panel: #f1f0ea;
+  --veqzai-ink: #1d1d1d;
 }
 
 body {
@@ -122,75 +126,285 @@ nav {
   50% { opacity: 1.2; }
 }
 
-.hero-content { position: relative; max-width: 720px; }
+.hero-content { position: relative; max-width: 1200px; width: 100%; z-index: 1; }
 
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 10px;
-  font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent2);
-  margin-bottom: 28px;
-  animation: slideInDown 0.8s ease-out;
+.veqzai-hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
 }
 
-.hero-eyebrow::before {
-  content: ''; display: block; width: 32px; height: 1px; background: var(--accent2);
+.veqzai-price-row {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-width: 0;
 }
 
-@keyframes slideInDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+.veqzai-price-block {
+  display: inline-flex;
+  align-items: flex-end;
 }
 
-h1 {
+.veqzai-price {
   font-family: 'Rajdhani', sans-serif;
-  font-size: clamp(48px, 9vw, 96px);
-  font-weight: 700; line-height: 0.95;
-  letter-spacing: -2px;
-  margin-bottom: 28px;
-  animation: slideInUp 0.8s ease-out 0.1s both;
+  font-size: clamp(96px, 11vw, 260px);
+  font-weight: 700;
+  line-height: .8;
+  letter-spacing: -0.08em;
+  color: var(--veqzai-green);
+  text-shadow: 0 0 30px rgba(16, 224, 164, 0.2);
 }
 
-@keyframes slideInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+.veqzai-price-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 32px;
+  min-width: 200px;
 }
 
-h1 .line1 { display: block; color: #fff; }
-h1 .line2 { display: block; background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-
-.hero-sub {
-  font-size: 18px; font-weight: 300; color: var(--muted);
-  line-height: 1.65; max-width: 480px; margin-bottom: 48px;
-  animation: slideInUp 0.8s ease-out 0.2s both;
+.veqzai-per-month {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(28px, 2vw, 52px);
+  font-weight: 700;
+  color: #ecf2f5;
+  line-height: 1;
+  margin-bottom: 18px;
 }
 
-.hero-ctas { display: flex; gap: 16px; align-items: center; animation: slideInUp 0.8s ease-out 0.3s both; }
-
-.btn-xl {
-  font-family: 'Barlow', sans-serif;
-  font-size: 14px; letter-spacing: 2px; text-transform: uppercase;
-  color: #fff; background: var(--accent);
-  padding: 16px 36px; border: none; border-radius: 4px; cursor: pointer;
-  transition: all 0.3s;
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+.veqzai-tier-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.btn-xl:hover { 
-  background: #6d28d9; 
-  transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(124, 58, 237, 0.5);
+.tier-pill {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.12);
 }
 
-.btn-xl-ghost {
-  font-family: 'Barlow', sans-serif;
-  font-size: 14px; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--text); background: none;
-  padding: 16px 36px; border: 1px solid var(--border); border-radius: 4px; cursor: pointer;
-  transition: all 0.3s;
+.tier-active {
+  background: linear-gradient(180deg, #32f0b7, #10c291);
+  box-shadow: 0 0 12px rgba(16, 224, 164, 0.35);
 }
 
-.btn-xl-ghost:hover { 
-  border-color: rgba(255,255,255,0.25); 
-  background: rgba(255,255,255,0.05);
+.tier-inactive {
+  background: rgba(255,255,255,0.07);
+}
+
+.veqzai-tier-label {
+  font-size: 18px;
+  color: #cbd5e1;
+  letter-spacing: .02em;
+}
+
+.veqzai-tier-label span {
+  color: #ecf2f5;
+  font-weight: 700;
+}
+
+.veqzai-free-tier-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  margin-bottom: 24px;
+  color: rgba(255,255,255,0.7);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.veqzai-free-tier-row .dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.6);
+}
+
+.veqzai-iphone-frame {
+  position: relative;
+  width: min(420px, 100%);
+  min-height: 540px;
+  background: linear-gradient(180deg, #171b22, #0f1217);
+  border-radius: 40px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 18px 16px 24px;
+}
+
+.iphone-notch {
+  position: absolute;
+  left: 50%;
+  top: 14px;
+  width: 150px;
+  height: 26px;
+  transform: translateX(-50%);
+  border-radius: 18px;
+  background: rgba(15,18,23,0.95);
+  z-index: 3;
+}
+
+.iphone-statusbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 700;
+  color: #f1f5f9;
+  padding: 14px 18px 10px;
+  letter-spacing: 0.04em;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+}
+
+.iphone-screen {
+  height: calc(100% - 48px);
+  background: linear-gradient(180deg, rgba(20,22,28,0.9), rgba(8,10,14,0.95));
+  border-radius: 30px;
+  padding: 24px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.receipt-card {
+  background: var(--veqzai-panel);
+  color: var(--veqzai-ink);
+  border-radius: 18px 18px 18px 18px;
+  padding: 16px 18px 12px;
+  box-shadow: inset 0 0 0 1px rgba(14, 14, 14, 0.08);
+  transform: rotate(-0.7deg);
+}
+
+.receipt-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1.5px dashed rgba(29,29,29,0.42);
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.receipt-head .brand {
+  font-weight: 700;
+  color: #1d1d1d;
+}
+
+.receipt-head .type {
+  color: rgba(29,29,29,0.7);
+  font-style: italic;
+}
+
+.receipt-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.receipt-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 2px 0;
+}
+
+.service {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.service-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 12px;
+  color: #1d1d1d;
+  background: rgba(17,17,17,0.08);
+  flex-shrink: 0;
+}
+
+.service-icon.cloudflare,
+.service-icon.storage { background: rgba(29, 41, 59, 0.08); }
+.service-icon.neon { background: rgba(117, 75, 255, 0.12); }
+.service-icon.clerk { background: rgba(28, 124, 199, 0.12); }
+.service-icon.resend { background: rgba(255, 153, 51, 0.12); }
+
+.service-text {
+  font-size: 18px;
+  font-weight: 500;
+  color: #1d1d1d;
+}
+
+.service-cost {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1d1d1d;
+}
+
+.receipt-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1.5px solid rgba(29,29,29,0.5);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.deploy-line {
+  margin-top: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #ecf2f5;
+  margin-left: 8px;
+}
+
+.deploy-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(24px, 3vw, 42px);
+  line-height: 1;
+  color: #f4f3f0;
+  font-weight: 700;
+}
+
+.deploy-btn {
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+  border: none;
+  background: linear-gradient(135deg, rgba(93, 103, 255, 0.8), rgba(14, 165, 233, 0.9));
+  color: #fff;
+  font-size: 22px;
+  box-shadow: 0 10px 22px rgba(48, 93, 255, 0.35);
+  cursor: pointer;
 }
 
 /* ── FEATURED GAMES ── */
@@ -320,8 +534,6 @@ section { padding: 120px 48px; }
   text-align: center;
 }
 
-.stat-item { }
-
 .stat-number {
   font-family: 'Rajdhani', sans-serif;
   font-size: 48px; font-weight: 700;
@@ -374,6 +586,7 @@ footer {
 @media (max-width: 1024px) {
   nav { padding: 0 24px; }
   section { padding: 80px 24px; }
+  .veqzai-hero-content { flex-direction: column; }
   .games-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -389,6 +602,9 @@ footer {
   .game-card:first-child { grid-row: auto; }
   .features-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .veqzai-price-row { flex-direction: column; align-items: flex-start; }
+  .veqzai-free-tier-row { flex-wrap: wrap; }
+  .veqzai-iphone-frame { width: 100%; }
 }
 
 @media (max-width: 480px) {
@@ -402,6 +618,10 @@ footer {
   .btn-xl, .btn-xl-ghost { padding: 12px 24px; font-size: 12px; }
   .section-title { font-size: 28px; }
   .stats-grid { grid-template-columns: 1fr; }
+  .veqzai-price { font-size: clamp(72px, 20vw, 150px); }
+  .veqzai-per-month { font-size: 26px; }
+  .service-text, .service-cost { font-size: 14px; }
+  .deploy-text { font-size: 28px; }
 }
 
 .posts-list{display:flex;flex-direction:column;gap:12px}
@@ -417,3 +637,13 @@ footer {
 .fandom-card-spaced { margin-bottom: 20px; }
 .fandom-card-title { margin-top: 0; color: #fff; }
 .fandom-list { margin-top: 12px; }
+
+@media (max-width: 768px) {
+  .stats-section-inner { padding: 80px 24px; }
+  .fandom-section { padding: 60px 24px; }
+}
+
+@media (max-width: 480px) {
+  .stats-section-inner { padding: 64px 16px; }
+  .fandom-section { padding: 48px 16px; }
+}
