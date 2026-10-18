@@ -391,9 +391,66 @@ footer {
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ── coming soon overlay on game cards ─────────────────────── */
+.game-coming-soon { cursor: default; }
+.coming-soon-overlay {
+  position: absolute; inset: 0; z-index: 3;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(8,6,18,0.55);
+  backdrop-filter: blur(2px);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.game-coming-soon:hover .coming-soon-overlay { opacity: 1; }
+.coming-soon-overlay span {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: #fff;
+  background: rgba(124,58,237,0.85);
+  padding: 6px 14px; border-radius: 4px;
+}
+
+/* ── hamburger button (hidden on wide screens) ─────────────── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column; justify-content: center; align-items: center;
+  gap: 5px; width: 40px; height: 40px;
+  background: transparent; border: none; cursor: pointer; padding: 0;
+  z-index: 101;
+}
+.nav-hamburger span {
+  display: block; width: 22px; height: 2px;
+  background: var(--text, #fff);
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+.nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.is-open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 640px) {
+  .nav-hamburger { display: flex; }
+
+  .nav-links {
+    position: fixed; inset: 64px 0 0 0; z-index: 99;
+    flex-direction: column; gap: 0;
+    background: rgba(10,10,15,0.98);
+    backdrop-filter: blur(16px);
+    padding: 24px 32px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    font-size: 16px;
+  }
+  .nav-links.is-open { transform: translateX(0); }
+  .nav-links li { border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .nav-links a { display: block; padding: 16px 0; letter-spacing: 2px; color: var(--text,#fff); }
+
+  .nav-right .btn-ghost { display: none; }
+  nav { padding: 0 16px; }
+}
+
 @media (max-width: 480px) {
-  nav { padding: 0 12px; }
-  .nav-links { gap: 12px; font-size: 11px; }
   .logo { font-size: 16px; gap: 6px; }
   .logo img { height: 24px; }
   .hero { padding: 80px 16px 40px; }

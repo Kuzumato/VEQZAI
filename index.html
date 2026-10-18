@@ -15,7 +15,10 @@
       <img src="assets/images/LOGO.png" alt="VEQZAI">
       <span>VEQZAI</span>
     </a>
-    <ul class="nav-links">
+    <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
       <li><a href="#games">Games</a></li>
       <li><a href="#features">Features</a></li>
       <li><a href="#stats">Community</a></li>
@@ -54,10 +57,11 @@
     <h2 class="section-title">Trending Games</h2>
 
     <div class="games-grid">
-      <!-- Featured Game -->
-      <div class="game-card game-purple">
+      <!-- Featured Game — Coming Soon -->
+      <div class="game-card game-purple game-coming-soon">
         <div class="game-bg">🎮</div>
         <div class="game-bg-gradient"></div>
+        <div class="coming-soon-overlay"><span>Coming Soon</span></div>
         <div class="game-info">
           <span class="game-badge">Featured</span>
           <div class="game-genre">RPG</div>
@@ -69,10 +73,11 @@
         </div>
       </div>
 
-      <!-- Game 2 -->
-      <div class="game-card game-cyan">
+      <!-- Game 2 — Coming Soon -->
+      <div class="game-card game-cyan game-coming-soon">
         <div class="game-bg">⚔️</div>
         <div class="game-bg-gradient"></div>
+        <div class="coming-soon-overlay"><span>Coming Soon</span></div>
         <div class="game-info">
           <span class="game-badge badge-hot">Hot</span>
           <div class="game-genre">Action</div>
@@ -84,10 +89,11 @@
         </div>
       </div>
 
-      <!-- Game 3 -->
-      <div class="game-card game-red">
+      <!-- Game 3 — Coming Soon -->
+      <div class="game-card game-red game-coming-soon">
         <div class="game-bg">🏎️</div>
         <div class="game-bg-gradient"></div>
+        <div class="coming-soon-overlay"><span>Coming Soon</span></div>
         <div class="game-info">
           <span class="game-badge badge-new">New</span>
           <div class="game-genre">Racing</div>
@@ -99,10 +105,11 @@
         </div>
       </div>
 
-      <!-- Game 4 -->
-      <div class="game-card game-cyan">
+      <!-- Game 4 — Coming Soon -->
+      <div class="game-card game-cyan game-coming-soon">
         <div class="game-bg">👾</div>
         <div class="game-bg-gradient"></div>
+        <div class="coming-soon-overlay"><span>Coming Soon</span></div>
         <div class="game-info">
           <div class="game-genre">Shooter</div>
           <h3 class="game-title">Vortex</h3>
@@ -113,10 +120,11 @@
         </div>
       </div>
 
-      <!-- Game 5 -->
-      <div class="game-card game-purple">
+      <!-- Game 5 — Coming Soon -->
+      <div class="game-card game-purple game-coming-soon">
         <div class="game-bg">⚽</div>
         <div class="game-bg-gradient"></div>
+        <div class="coming-soon-overlay"><span>Coming Soon</span></div>
         <div class="game-info">
           <div class="game-genre">Sports</div>
           <h3 class="game-title">Champion Pro</h3>
@@ -284,7 +292,7 @@
         <a href="mailto:support@veqzai.com">Contact</a>
       </div>
       <div class="footer-bottom">
-        &copy; 2025 VEQZAI. All rights reserved. | Play Without Limits.
+        &copy; <span id="copy-year"></span> VEQZAI. All rights reserved. | Play Without Limits.
       </div>
     </div>
   </footer>

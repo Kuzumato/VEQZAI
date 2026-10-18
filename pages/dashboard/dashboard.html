@@ -20,7 +20,7 @@
 
                 <nav class="main-nav" aria-label="Main navigation">
                     <a href="heroes-dashboard.html">Heroes</a>
-                    <a href="character%20making.html">Character</a>
+                    <a href="character-making.html">Character</a>
                     <a href="armory-dashboard.html">Armory</a>
                     <a href="watch-dashboard.html">Watch</a>
                     <a href="learn-dashboard.html">Learn</a>
@@ -151,7 +151,7 @@
 
                     <div class="banner-copy">
                         <div class="banner-label">Group stage - day 1</div>
-                        <h2>Starts in 20h 52m 11s</h2>
+                        <h2 id="tournamentCountdown">Starts in 20h 52m 11s</h2>
                     </div>
 
                     <div class="banner-promo">
@@ -166,30 +166,30 @@
 
                     <div class="reward-grid">
                         <article class="reward-card fantasy-card">
-                            <div class="reward-icon"><i class="fa-solid fa-gift" aria-hidden="true"></i></div>
+                            <div class="reward-icon"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></div>
                             <div class="reward-copy">
                                 <span class="reward-title">Fantasy</span>
                                 <span class="reward-sub">Group Stage</span>
                             </div>
-                            <button class="gold-btn">Craft your team</button>
+                            <button class="gold-btn coming-soon-btn" title="Coming soon">Craft your team</button>
                         </article>
 
                         <article class="reward-card reward-card--middle">
-                            <div class="reward-icon"><i class="fa-solid fa-gift" aria-hidden="true"></i></div>
+                            <div class="reward-icon"><i class="fa-solid fa-box-open" aria-hidden="true"></i></div>
                             <div class="reward-copy">
                                 <span class="reward-title">Rewards</span>
                                 <span class="reward-sub">Collect free loot</span>
                             </div>
-                            <button class="gold-btn secondary">View rewards</button>
+                            <button class="gold-btn secondary coming-soon-btn" title="Coming soon">View rewards</button>
                         </article>
 
                         <article class="reward-card prediction-card">
-                            <div class="reward-icon"><i class="fa-solid fa-gift" aria-hidden="true"></i></div>
+                            <div class="reward-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
                             <div class="reward-copy">
                                 <span class="reward-title">Predictions</span>
                                 <span class="reward-sub">Group Stage</span>
                             </div>
-                            <button class="gold-btn">Set predictions</button>
+                            <button class="gold-btn coming-soon-btn" title="Coming soon">Set predictions</button>
                         </article>
                     </div>
                 </div>
@@ -343,15 +343,70 @@
 
             const returnBtn = document.querySelector('.return-btn');
             if (returnBtn) {
-                returnBtn.addEventListener('click', redirectToLogin);
+                returnBtn.addEventListener('click', function() {
+                    window.location.href = 'arcade-dashboard.html';
+                });
             }
 
             const logoutAction = document.querySelector('.account-actions button:last-child');
             if (logoutAction) {
                 logoutAction.addEventListener('click', redirectToLogin);
             }
+
+            // ── Active nav highlight ──────────────────────────────────
+            var page = location.pathname.split('/').pop() || 'dashboard.html';
+            document.querySelectorAll('.main-nav a').forEach(function(a) {
+                if (a.getAttribute('href') === page) {
+                    a.setAttribute('aria-current', 'page');
+                    a.style.cssText = 'color:#fff;border-bottom:2px solid var(--accent,#7c3aed);padding-bottom:2px;';
+                }
+            });
+
+            // ── Countdown timer (target: next midnight UTC as placeholder) ─
+            var countdownEl = document.getElementById('tournamentCountdown');
+            if (countdownEl) {
+                var target = new Date();
+                target.setUTCHours(target.getUTCHours() + 21, 0, 0, 0); // ~21h from now
+                function updateCountdown() {
+                    var diff = target - Date.now();
+                    if (diff <= 0) { countdownEl.textContent = 'Live now!'; return; }
+                    var h = Math.floor(diff / 3600000);
+                    var m = Math.floor((diff % 3600000) / 60000);
+                    var s = Math.floor((diff % 60000) / 1000);
+                    countdownEl.textContent = 'Starts in ' + h + 'h ' + m + 'm ' + s + 's';
+                }
+                updateCountdown();
+                setInterval(updateCountdown, 1000);
+            }
+
+            // ── Coming Soon buttons: show a toast instead of doing nothing ─
+            document.querySelectorAll('.coming-soon-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var existing = document.getElementById('cs-toast');
+                    if (existing) return;
+                    var toast = document.createElement('div');
+                    toast.id = 'cs-toast';
+                    toast.textContent = 'Coming soon — stay tuned!';
+                    toast.style.cssText = [
+                        'position:fixed;bottom:32px;left:50%;transform:translateX(-50%)',
+                        'background:#1a1035;border:1px solid rgba(124,58,237,0.6)',
+                        'color:#fff;font-size:13px;letter-spacing:1px',
+                        'padding:10px 24px;border-radius:6px;z-index:9999',
+                        'box-shadow:0 4px 24px rgba(0,0,0,0.5)',
+                        'animation:fadeInUp 0.25s ease'
+                    ].join(';');
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 2500);
+                });
+            });
         });
     </script>
+    <style>
+        @keyframes fadeInUp {
+            from { opacity:0; transform:translateX(-50%) translateY(12px); }
+            to   { opacity:1; transform:translateX(-50%) translateY(0); }
+        }
+    </style>
 </body>
 </html>
 
