@@ -21,7 +21,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#games">Games</a></li>
       <li><a href="#features">Features</a></li>
-      <li><a href="#stats">Community</a></li>
+      <li><a href="#ai">AI Hub</a></li>
     </ul>
     <div class="nav-right">
       <button class="btn-ghost" type="button" data-href="pages/auth/login/login.html">Login</button>
@@ -57,84 +57,6 @@
     <h2 class="section-title">Trending Games</h2>
 
     <div class="games-grid">
-      <!-- Featured Game — Coming Soon -->
-      <div class="game-card game-purple game-coming-soon">
-        <div class="game-bg">🎮</div>
-        <div class="game-bg-gradient"></div>
-        <div class="coming-soon-overlay"><span>Coming Soon</span></div>
-        <div class="game-info">
-          <span class="game-badge">Featured</span>
-          <div class="game-genre">RPG</div>
-          <h3 class="game-title">Arcane Odyssey</h3>
-          <div class="game-meta">
-            <span class="game-rating"><i class="fa-solid fa-star" aria-hidden="true"></i> 4.8</span>
-            <span class="game-players">2.4M Active</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Game 2 — Coming Soon -->
-      <div class="game-card game-cyan game-coming-soon">
-        <div class="game-bg">⚔️</div>
-        <div class="game-bg-gradient"></div>
-        <div class="coming-soon-overlay"><span>Coming Soon</span></div>
-        <div class="game-info">
-          <span class="game-badge badge-hot">Hot</span>
-          <div class="game-genre">Action</div>
-          <h3 class="game-title">Nexus</h3>
-          <div class="game-meta">
-            <span class="game-rating"><i class="fa-solid fa-star" aria-hidden="true"></i> 4.9</span>
-            <span class="game-players">5.2M Active</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Game 3 — Coming Soon -->
-      <div class="game-card game-red game-coming-soon">
-        <div class="game-bg">🏎️</div>
-        <div class="game-bg-gradient"></div>
-        <div class="coming-soon-overlay"><span>Coming Soon</span></div>
-        <div class="game-info">
-          <span class="game-badge badge-new">New</span>
-          <div class="game-genre">Racing</div>
-          <h3 class="game-title">Velocity</h3>
-          <div class="game-meta">
-            <span class="game-rating"><i class="fa-solid fa-star" aria-hidden="true"></i> 4.6</span>
-            <span class="game-players">1.8M Active</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Game 4 — Coming Soon -->
-      <div class="game-card game-cyan game-coming-soon">
-        <div class="game-bg">👾</div>
-        <div class="game-bg-gradient"></div>
-        <div class="coming-soon-overlay"><span>Coming Soon</span></div>
-        <div class="game-info">
-          <div class="game-genre">Shooter</div>
-          <h3 class="game-title">Vortex</h3>
-          <div class="game-meta">
-            <span class="game-rating"><i class="fa-solid fa-star" aria-hidden="true"></i> 4.7</span>
-            <span class="game-players">3.1M Active</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Game 5 — Coming Soon -->
-      <div class="game-card game-purple game-coming-soon">
-        <div class="game-bg">⚽</div>
-        <div class="game-bg-gradient"></div>
-        <div class="coming-soon-overlay"><span>Coming Soon</span></div>
-        <div class="game-info">
-          <div class="game-genre">Sports</div>
-          <h3 class="game-title">Champion Pro</h3>
-          <div class="game-meta">
-            <span class="game-rating"><i class="fa-solid fa-star" aria-hidden="true"></i> 4.5</span>
-            <span class="game-players">2.9M Active</span>
-          </div>
-        </div>
-      </div>
-
       <!-- Dead Zone: Survival — PLAYABLE -->
       <a href="pages/games/deadzone-survival.html" class="game-card game-red" style="text-decoration:none;cursor:pointer;" title="Play Dead Zone: Survival">
         <div class="game-bg">☠️</div>
@@ -235,52 +157,6 @@
     </div>
   </section>
 
-  <!-- STATS -->
-  <section class="stats-section" id="stats">
-    <div class="stats-section-inner">
-      <div class="section-label"><i class="fa-solid fa-gem" aria-hidden="true"></i> By The Numbers</div>
-      <h2 class="section-title">Join Our Community</h2>
-
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-number">50M+</div>
-          <div class="stat-label">Active Players</div>
-        </div>
-
-        <div class="stat-item">
-          <div class="stat-number">500+</div>
-          <div class="stat-label">Games Available</div>
-        </div>
-
-        <div class="stat-item">
-          <div class="stat-number">$10M+</div>
-          <div class="stat-label">Prize Pools</div>
-        </div>
-
-        <div class="stat-item">
-          <div class="stat-number">200</div>
-          <div class="stat-label">Countries</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FANDOM SECTION -->
-  <section id="fandom" class="games-section fandom-section">
-    <div class="section-label"><i class="fa-solid fa-gem" aria-hidden="true"></i> Fandom Hub</div>
-    <h2 class="section-title">Community Highlights</h2>
-
-    <div class="card fandom-card fandom-card-spaced">
-      <h3 class="fandom-card-title">Latest Fan Posts</h3>
-      <div id="posts" class="posts-list fandom-list"></div>
-    </div>
-
-    <div class="card fandom-card">
-      <h3 class="fandom-card-title">Featured Characters</h3>
-      <div id="featured" class="featured-grid fandom-list"></div>
-    </div>
-  </section>
-
   <!-- FOOTER -->
   <footer>
     <div class="footer-content">
@@ -296,8 +172,6 @@
       </div>
     </div>
   </footer>
-  <script src="assets/js/fandom-dashboard.js"></script>
-
   <script src="assets/js/index.js"></script>
 </body>
 </html>
