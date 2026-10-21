@@ -57,52 +57,97 @@
     <h2 class="section-title">Trending Games</h2>
 
     <div class="games-grid">
-      <!-- Three Realms — PLAYABLE -->
-      <a href="pages/games/three-realms.html" class="game-card game-purple" style="text-decoration:none;cursor:pointer;" title="Play Three Realms">
+      <!-- Three Realms -->
+      <div class="game-card game-purple" role="button" tabindex="0"
+           data-game="three-realms"
+           data-title="Three Realms"
+           data-genre="Action RPG"
+           data-badge="New"
+           data-icon="⚔️"
+           data-story="Three kingdoms. One destiny. In a world split between the Deepforest, the Ruin Dungeons, and the Demon Base Kingdom, three heroes — Warrior, Mage, and Ranger — must fight their way across treacherous realms to stop the demon king. Each kingdom holds ancient secrets: nature's power in the west, cursed relics buried deep in dungeon ruins, and a lava-scorched wasteland ruled by darkness in the east. Collect all six relics, unlock the path to the Demon Castle, and face the throne room. Your adventure begins with a single step into the forest."
+           data-meta1="3 Hero Classes" data-meta2="3 Kingdoms to explore">
         <div class="game-bg">⚔️</div>
         <div class="game-bg-gradient"></div>
+        <div class="game-hover-cta"><i class="fa-solid fa-circle-info"></i> View Story</div>
         <div class="game-info">
-          <span class="game-badge">PLAYABLE</span>
+          <span class="game-badge">New</span>
           <div class="game-genre">Action RPG</div>
           <h3 class="game-title">Three Realms</h3>
+          <p class="game-teaser">Three kingdoms. One destiny. Can you reach the Demon Throne?</p>
           <div class="game-meta">
             <span class="game-rating"><i class="fa-solid fa-star" aria-hidden="true"></i> New</span>
             <span class="game-players">3 Hero Classes</span>
           </div>
         </div>
-      </a>
+      </div>
 
-      <!-- Dead Zone: Survival — PLAYABLE -->
-      <a href="pages/games/deadzone-survival.html" class="game-card game-red" style="text-decoration:none;cursor:pointer;" title="Play Dead Zone: Survival">
+      <!-- Dead Zone: Survival -->
+      <div class="game-card game-red" role="button" tabindex="0"
+           data-game="deadzone"
+           data-title="Dead Zone: Survival"
+           data-genre="Zombie Survival RPG"
+           data-badge="Hot"
+           data-icon="☠️"
+           data-story="The outbreak happened overnight. Cities fell silent. Now the dead walk and the living scatter. You are one of five survivors, each with a unique class and a different reason to fight. Scavenge weapons from ruined buildings, fortify safe houses, and push deeper into the dead zone to uncover what really started the infection. Every supply run is a gamble. Every encounter could be your last. Choose your hero, upgrade your skills, and survive long enough to find the truth buried at the heart of the outbreak."
+           data-meta1="5 Hero Classes" data-meta2="Open-world survival">
         <div class="game-bg">☠️</div>
         <div class="game-bg-gradient"></div>
+        <div class="game-hover-cta"><i class="fa-solid fa-circle-info"></i> View Story</div>
         <div class="game-info">
-          <span class="game-badge badge-new">PLAYABLE</span>
+          <span class="game-badge badge-new">Hot</span>
           <div class="game-genre">Zombie Survival RPG</div>
           <h3 class="game-title">Dead Zone: Survival</h3>
+          <p class="game-teaser">The dead walk. Five survivors. One truth buried in the outbreak.</p>
           <div class="game-meta">
             <span class="game-rating"><i class="fa-solid fa-star" aria-hidden="true"></i> New</span>
             <span class="game-players">5 Hero Classes</span>
           </div>
         </div>
-      </a>
+      </div>
 
-      <!-- Knight's Rescue — PLAYABLE -->
-      <a href="pages/games/knights-rescue.html" class="game-card game-cyan" style="text-decoration:none;cursor:pointer;" title="Play Knight's Rescue">
+      <!-- Knight's Rescue -->
+      <div class="game-card game-cyan" role="button" tabindex="0"
+           data-game="knights-rescue"
+           data-title="Knight's Rescue"
+           data-genre="Action Adventure"
+           data-badge="New"
+           data-icon="🛡️"
+           data-story="The princess has been taken to the darkest fortress at the edge of the realm. The king's army was shattered at the gates. Only one knight remains — you. Armed with a blade, a shield, and whatever you can salvage from fallen soldiers, you must cut through enemy camps, scale crumbling towers, and outwit the fortress guardians. The rescue will not be quick. The road will not be kind. But a knight's oath does not break — not even at the end of the world."
+           data-meta1="Solo Quest" data-meta2="Classic adventure">
         <div class="game-bg">🛡️</div>
         <div class="game-bg-gradient"></div>
+        <div class="game-hover-cta"><i class="fa-solid fa-circle-info"></i> View Story</div>
         <div class="game-info">
-          <span class="game-badge badge-hot">PLAYABLE</span>
+          <span class="game-badge badge-hot">New</span>
           <div class="game-genre">Action Adventure</div>
           <h3 class="game-title">Knight's Rescue</h3>
+          <p class="game-teaser">One knight. One oath. One impossible rescue mission.</p>
           <div class="game-meta">
             <span class="game-rating"><i class="fa-solid fa-star" aria-hidden="true"></i> New</span>
             <span class="game-players">Solo Quest</span>
           </div>
         </div>
-      </a>
+      </div>
     </div>
   </section>
+
+  <!-- GAME STORY MODAL -->
+  <div id="gameModal" class="game-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="game-modal-backdrop"></div>
+    <div class="game-modal-panel">
+      <button class="game-modal-close" id="modalClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <div class="game-modal-icon" id="modalIcon"></div>
+      <div class="game-modal-badge" id="modalBadge"></div>
+      <div class="game-modal-genre" id="modalGenre"></div>
+      <h2 class="game-modal-title" id="modalTitle"></h2>
+      <p class="game-modal-story" id="modalStory"></p>
+      <div class="game-modal-meta" id="modalMeta"></div>
+      <div class="game-modal-actions">
+        <a href="signup.html" class="btn-xl game-modal-play">Create Free Account to Play <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="pages/auth/login/login.html" class="btn-xl-ghost game-modal-login">Already have an account? Log In</a>
+      </div>
+    </div>
+  </div>
 
   <!-- FEATURES -->
   <section class="features-section" id="features">
