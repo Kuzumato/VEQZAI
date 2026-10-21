@@ -1,22 +1,10 @@
 /* Styles for signup.html */
+@import url('tokens.css');
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --bg: #0a0a0f;
-      --surface: #11111a;
-      --surface2: #1a1a28;
-      --border: rgba(255,255,255,0.07);
-      --accent: #7c3aed;
-      --accent2: #06b6d4;
-      --accent-glow: rgba(124, 58, 237, 0.25);
-      --text: #f0f0f8;
-      --muted: #8888aa;
-      --danger: #ef4444;
-      --success: #10b981;
-    }
-
     body {
-      font-family: 'Barlow', sans-serif;
+      font-family: var(--font-body);
       background: var(--bg);
       color: var(--text);
       margin: 0;

@@ -1,18 +1,16 @@
+@import url('tokens.css');
+
+/* dashboard-specific extensions — do not redefine global tokens here */
 :root {
     --bg-deep: #060b14;
     --bg-panel: rgba(17, 24, 35, 0.86);
     --bg-panel-strong: rgba(11, 18, 28, 0.98);
     --bg-panel-alt: rgba(26, 35, 47, 0.9);
-    --border: rgba(118, 153, 255, 0.25);
     --border-bright: rgba(115, 218, 255, 0.9);
     --cyan: #5fe7ff;
     --blue: #4aa2ff;
     --purple: #a56dff;
     --pink: #ff6de0;
-    --gold: #f7d06f;
-    --text: #edf6ff;
-    --muted: #9aa9bb;
-    --danger: #ff4d6d;
     --green: #64f0ad;
 }
 
