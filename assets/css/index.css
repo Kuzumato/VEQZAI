@@ -281,6 +281,9 @@ section { padding: 120px 48px; }
 .game-purple { background: linear-gradient(135deg, #1a0a2e 0%, #11111a 100%); }
 .game-cyan   { background: linear-gradient(135deg, #0a1a2e 0%, #11111a 100%); }
 .game-red    { background: linear-gradient(135deg, #2e0a0a 0%, #11111a 100%); }
+.game-green  { background: linear-gradient(135deg, #0a2e1a 0%, #11111a 100%); }
+/* fourth card fills the second row beside the tall first card */
+.game-card:nth-child(4) { grid-column: span 2; }
 
 /* ── GAME STORY MODAL ── */
 .game-modal {
@@ -480,6 +483,7 @@ footer {
   section { padding: 60px 24px; }
   .games-grid { grid-template-columns: 1fr; }
   .game-card:first-child { grid-row: auto; }
+  .game-card:nth-child(4) { grid-column: auto; }
   .features-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
 }
