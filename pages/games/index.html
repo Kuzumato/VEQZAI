@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VEQZAI — The Ultimate Gaming & Esports Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav>
+    <a class="logo" href="index.html">
+      <img src="assets/images/LOGO.png" alt="VEQZAI">
+      <span>VEQZAI</span>
+    </a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#games">Games</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#ai">AI Hub</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="btn-ghost" type="button" data-href="pages/auth/login/login.html">Login</button>
+      <button class="btn-primary" type="button" data-href="signup.html">Sign Up</button>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow2"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow"><i class="fa-solid fa-gem" aria-hidden="true"></i> Play Without Limits</div>
+      <h1>
+        <span class="line1">Welcome to</span>
+        <span class="line2">VEQZAI</span>
+      </h1>
+      <p class="hero-sub">
+        Join millions of players in the ultimate gaming and esports platform. Stream, compete, and connect with gamers worldwide.
+      </p>
+      <div class="hero-ctas">
+        <button class="btn-xl" type="button" data-href="pages/auth/login/login.html">Start Playing</button>
+        <button class="btn-xl-ghost" type="button" data-href="VEQZAI.html">Learn More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED GAMES -->
+  <section class="games-section" id="games">
+    <div class="section-label"><i class="fa-solid fa-gem" aria-hidden="true"></i> Featured Titles</div>
+    <h2 class="section-title">Trending Games</h2>
+
+    <div class="games-grid">
+      <!-- Three Realms -->
+      <div class="game-card game-purple" role="button" tabindex="0"
+           data-game="three-realms"
+           data-title="Three Realms"
+           data-genre="Action RPG"
+           data-badge="New"
+           data-icon="⚔️"
+           data-story="Three kingdoms. One destiny. In a world split between the Deepforest, the Ruin Dungeons, and the Demon Base Kingdom, three heroes — Warrior, Mage, and Ranger — must fight their way across treacherous realms to stop the demon king. Each kingdom holds ancient secrets: nature's power in the west, cursed relics buried deep in dungeon ruins, and a lava-scorched wasteland ruled by darkness in the east. Collect all six relics, unlock the path to the Demon Castle, and face the throne room. Your adventure begins with a single step into the forest."
+           data-meta1="3 Hero Classes" data-meta2="3 Kingdoms to explore">
+        <div class="game-bg">⚔️</div>
+        <div class="game-bg-gradient"></div>
+        <div class="game-hover-cta"><i class="fa-solid fa-circle-info"></i> View Story</div>
+        <div class="game-info">
+          <span class="game-badge">New</span>
+          <div class="game-genre">Action RPG</div>
+          <h3 class="game-title">Three Realms</h3>
+          <p class="game-teaser">Three kingdoms. One destiny. Can you reach the Demon Throne?</p>
+          <div class="game-meta">
+            <span class="game-rating"><i class="fa-solid fa-star" aria-hidden="true"></i> New</span>
+            <span class="game-players">3 Hero Classes</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dead Zone: Survival -->
+      <div class="game-card game-red" role="button" tabindex="0"
+           data-game="deadzone"
+           data-title="Dead Zone: Survival"
+           data-genre="Zombie Survival RPG"
+           data-badge="Hot"
+           data-icon="☠️"
+           data-story="The outbreak happened overnight. Cities fell silent. Now the dead walk and the living scatter. You are one of five survivors, each with a unique class and a different reason to fight. Scavenge weapons from ruined buildings, fortify safe houses, and push deeper into the dead zone to uncover what really started the infection. Every supply run is a gamble. Every encounter could be your last. Choose your hero, upgrade your skills, and survive long enough to find the truth buried at the heart of the outbreak."
+           data-meta1="5 Hero Classes" data-meta2="Open-world survival">
+        <div class="game-bg">☠️</div>
+        <div class="game-bg-gradient"></div>
+        <div class="game-hover-cta"><i class="fa-solid fa-circle-info"></i> View Story</div>
+        <div class="game-info">
+          <span class="game-badge badge-new">Hot</span>
+          <div class="game-genre">Zombie Survival RPG</div>
+          <h3 class="game-title">Dead Zone: Survival</h3>
+          <p class="game-teaser">The dead walk. Five survivors. One truth buried in the outbreak.</p>
+          <div class="game-meta">
+            <span class="game-rating"><i class="fa-solid fa-star" aria-hidden="true"></i> New</span>
+            <span class="game-players">5 Hero Classes</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Knight's Rescue -->
+      <div class="game-card game-cyan" role="button" tabindex="0"
+           data-game="knights-rescue"
+           data-title="Knight's Rescue"
+           data-genre="Action Adventure"
+           data-badge="New"
+           data-icon="🛡️"
+           data-story="The princess has been taken to the darkest fortress at the edge of the realm. The king's army was shattered at the gates. Only one knight remains — you. Armed with a blade, a shield, and whatever you can salvage from fallen soldiers, you must cut through enemy camps, scale crumbling towers, and outwit the fortress guardians. The rescue will not be quick. The road will not be kind. But a knight's oath does not break — not even at the end of the world."
+           data-meta1="Solo Quest" data-meta2="Classic adventure">
+        <div class="game-bg">🛡️</div>
+        <div class="game-bg-gradient"></div>
+        <div class="game-hover-cta"><i class="fa-solid fa-circle-info"></i> View Story</div>
+        <div class="game-info">
+          <span class="game-badge badge-hot">New</span>
+          <div class="game-genre">Action Adventure</div>
+          <h3 class="game-title">Knight's Rescue</h3>
+          <p class="game-teaser">One knight. One oath. One impossible rescue mission.</p>
+          <div class="game-meta">
+            <span class="game-rating"><i class="fa-solid fa-star" aria-hidden="true"></i> New</span>
+            <span class="game-players">Solo Quest</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3D Origin -->
+      <div class="game-card game-green" role="button" tabindex="0"
+           data-game="3d-origin"
+           data-title="3D Origin"
+           data-genre="Open-World Action RPG"
+           data-badge="New"
+           data-icon="🏰"
+           data-story="Your village sits behind tall stone walls, safe from the wilds. Beyond the gate, slimes and goblins roam the forest and a giant Slime King waits far down the south road. Pick up quests from the notice board, swing your sword or draw your bow, collect loot, and trade with the merchant to grow stronger. Day turns to night, the lanterns light up, and the hunt gets harder. Explore the farm, tavern, forge and park, and see how far you can take your hero."
+           data-meta1="Sword &amp; bow combat" data-meta2="Day and night village">
+        <div class="game-bg">🏰</div>
+        <div class="game-bg-gradient"></div>
+        <div class="game-hover-cta"><i class="fa-solid fa-circle-info"></i> View Story</div>
+        <div class="game-info">
+          <span class="game-badge badge-new">New</span>
+          <div class="game-genre">Open-World Action RPG</div>
+          <h3 class="game-title">3D Origin</h3>
+          <p class="game-teaser">Defend the village. Hunt the wilds. Slay the Slime King.</p>
+          <div class="game-meta">
+            <span class="game-rating"><i class="fa-solid fa-star" aria-hidden="true"></i> New</span>
+            <span class="game-players">Solo Adventure</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAME STORY MODAL -->
+  <div id="gameModal" class="game-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="game-modal-backdrop"></div>
+    <div class="game-modal-panel">
+      <button class="game-modal-close" id="modalClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <div class="game-modal-icon" id="modalIcon"></div>
+      <div class="game-modal-badge" id="modalBadge"></div>
+      <div class="game-modal-genre" id="modalGenre"></div>
+      <h2 class="game-modal-title" id="modalTitle"></h2>
+      <p class="game-modal-story" id="modalStory"></p>
+      <div class="game-modal-meta" id="modalMeta"></div>
+      <div class="game-modal-actions">
+        <a href="signup.html" class="btn-xl game-modal-play">Create Free Account to Play <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="pages/auth/login/login.html" class="btn-xl-ghost game-modal-login">Already have an account? Log In</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section class="features-section" id="features">
+    <div class="section-label"><i class="fa-solid fa-gem" aria-hidden="true"></i> Why Choose VEQZAI</div>
+    <h2 class="section-title">Packed with Features</h2>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🎮</div>
+        <h3 class="feature-title">Massive Library</h3>
+        <p class="feature-desc">Access hundreds of games from indie developers to AAA studios, updated daily.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📡</div>
+        <h3 class="feature-title">Live Streaming</h3>
+        <p class="feature-desc">Stream your gameplay to thousands. Built-in tools for creators and pros.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🏆</div>
+        <h3 class="feature-title">Tournaments</h3>
+        <p class="feature-desc">Compete in daily tournaments with real prize pools and rankings.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">👥</div>
+        <h3 class="feature-title">Community</h3>
+        <p class="feature-desc">Connect with gamers worldwide. Form teams, join guilds, and build your community.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔐</div>
+        <h3 class="feature-title">Secure & Safe</h3>
+        <p class="feature-desc">Anti-cheat systems, encrypted accounts, and moderation teams protect your experience.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3 class="feature-title">Ultra-Fast</h3>
+        <p class="feature-desc">Optimized servers worldwide mean low latency and smooth gameplay everywhere.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI HUB INFO — members-only feature, no links to ai-hub.html -->
+  <section class="features-section" id="ai">
+    <div class="section-label"><i class="fa-solid fa-gem" aria-hidden="true"></i> Smart Play</div>
+    <h2 class="section-title">Powered by AI</h2>
+    <p style="text-align:center;color:var(--text-muted,#8899aa);max-width:560px;margin:0 auto 2.5rem;font-size:1.05rem;line-height:1.6;">
+      The VEQZAI AI Hub lives inside your dashboard. Sign up to unlock smart matchmaking, personalised game picks, safer chat, and an always-on help assistant.
+    </p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3 class="feature-title">Smart Matchmaking</h3>
+        <p class="feature-desc">AI-driven skill ratings and ping-aware pairing put you in fair, competitive matches — 1v1, 5v5, or battle royale depending on who's online.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">✨</div>
+        <h3 class="feature-title">Game Recommendations</h3>
+        <p class="feature-desc">Tell the AI what you love and it surfaces games you'll actually want to play, with plain-language reasons for every pick.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <h3 class="feature-title">Safer Chat</h3>
+        <p class="feature-desc">Real-time moderation catches harassment, scams, and personal-data leaks before they ever reach you or your squad.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">💬</div>
+        <h3 class="feature-title">Help Assistant</h3>
+        <p class="feature-desc">Instant answers about your account, platform features, and staying safe — available right inside your dashboard, any time.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:2.5rem;">
+      <button class="btn-primary" type="button" data-href="signup.html" style="font-size:1rem;padding:.75rem 2.5rem;">Create Free Account</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="VEQZAI.html">About</a>
+        <a href="pages/team.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="mailto:support@veqzai.com">Contact</a>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="copy-year"></span> VEQZAI. All rights reserved. | Play Without Limits.
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/index.js"></script>
+</body>
+</html>
