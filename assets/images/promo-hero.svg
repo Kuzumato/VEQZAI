@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 310" width="320" height="310">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1a2e"/>
+      <stop offset="100%" stop-color="#06091a"/>
+    </linearGradient>
+    <radialGradient id="heroGlow" cx="50%" cy="55%" r="40%">
+      <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="floorGlow2" cx="50%" cy="100%" r="50%">
+      <stop offset="0%" stop-color="#00aaff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#00aaff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="b6"><feGaussianBlur stdDeviation="6"/></filter>
+    <filter id="b3"><feGaussianBlur stdDeviation="3"/></filter>
+    <filter id="b10"><feGaussianBlur stdDeviation="10"/></filter>
+  </defs>
+
+  <rect width="320" height="310" fill="url(#bg2)"/>
+
+  <!-- Background city skyline silhouette -->
+  <g fill="#0a1525" opacity="0.8">
+    <rect x="0" y="180" width="20" height="130"/>
+    <rect x="15" y="155" width="15" height="155"/>
+    <rect x="25" y="170" width="25" height="140"/>
+    <rect x="45" y="145" width="12" height="165"/>
+    <rect x="52" y="160" width="20" height="150"/>
+    <rect x="260" y="175" width="20" height="135"/>
+    <rect x="275" y="150" width="15" height="160"/>
+    <rect x="285" y="165" width="25" height="145"/>
+    <rect x="300" y="140" width="12" height="170"/>
+    <rect x="308" y="155" width="20" height="155"/>
+  </g>
+  <!-- City windows -->
+  <g fill="#1a3a5a" opacity="0.7">
+    <rect x="17" y="160" width="4" height="3"/>
+    <rect x="17" y="168" width="4" height="3"/>
+    <rect x="23" y="156" width="4" height="3"/>
+    <rect x="23" y="164" width="4" height="3"/>
+    <rect x="47" y="150" width="4" height="3"/>
+    <rect x="47" y="158" width="4" height="3"/>
+    <rect x="275" y="155" width="4" height="3"/>
+    <rect x="275" y="163" width="4" height="3"/>
+    <rect x="287" y="170" width="4" height="3"/>
+    <rect x="287" y="178" width="4" height="3"/>
+  </g>
+  <!-- Neon city windows -->
+  <g opacity="0.5">
+    <rect x="30" y="175" width="3" height="2" fill="#00d4ff"/>
+    <rect x="55" y="162" width="3" height="2" fill="#ff4fc8"/>
+    <rect x="263" y="180" width="3" height="2" fill="#00d4ff"/>
+    <rect x="300" y="145" width="3" height="2" fill="#7b5fff"/>
+  </g>
+
+  <!-- Floor reflection -->
+  <ellipse cx="160" cy="295" rx="100" ry="20" fill="#00aaff" opacity="0.12" filter="url(#b6)"/>
+  <line x1="60" y1="285" x2="260" y2="285" stroke="#00d4ff" stroke-width="1" opacity="0.4"/>
+
+  <!-- Hero glow -->
+  <ellipse cx="160" cy="200" rx="70" ry="90" fill="url(#heroGlow)"/>
+  <ellipse cx="160" cy="200" rx="40" ry="50" fill="#00d4ff" opacity="0.06" filter="url(#b10)"/>
+
+  <!-- Hero figure — mage/ranger silhouette -->
+  <!-- Legs -->
+  <rect x="148" y="248" width="14" height="38" rx="4" fill="#0e2240"/>
+  <rect x="158" y="248" width="14" height="38" rx="4" fill="#0a1a35"/>
+  <!-- Boot glow lines -->
+  <line x1="148" y1="284" x2="162" y2="284" stroke="#00d4ff" stroke-width="1" opacity="0.6"/>
+  <line x1="158" y1="284" x2="172" y2="284" stroke="#00d4ff" stroke-width="1" opacity="0.6"/>
+
+  <!-- Body / chest armor -->
+  <path d="M140 200 Q155 192 160 190 Q165 192 180 200 L182 248 L138 248 Z" fill="#0d1e3a"/>
+  <!-- Chest plate -->
+  <path d="M148 200 Q160 194 172 200 L174 230 Q160 225 146 230 Z" fill="#132a4a"/>
+  <!-- Chest neon line -->
+  <path d="M155 205 Q160 202 165 205 L166 220 Q160 218 154 220 Z" fill="#00d4ff" opacity="0.3"/>
+  <path d="M155 205 Q160 202 165 205 L166 220 Q160 218 154 220 Z" fill="none" stroke="#00d4ff" stroke-width="0.5" opacity="0.8"/>
+
+  <!-- Arms -->
+  <!-- Left arm raised with staff -->
+  <path d="M140 205 Q125 195 118 180 Q115 170 118 165" fill="none" stroke="#0d1e3a" stroke-width="12" stroke-linecap="round"/>
+  <path d="M140 205 Q125 195 118 180 Q115 170 118 165" fill="none" stroke="#132a4a" stroke-width="8" stroke-linecap="round"/>
+  <!-- Right arm down -->
+  <path d="M180 205 Q195 215 198 230" fill="none" stroke="#0d1e3a" stroke-width="12" stroke-linecap="round"/>
+  <path d="M180 205 Q195 215 198 230" fill="none" stroke="#132a4a" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Staff -->
+  <line x1="118" y1="100" x2="122" y2="200" stroke="#1a3050" stroke-width="4" stroke-linecap="round"/>
+  <line x1="118" y1="100" x2="122" y2="200" stroke="#2a4a70" stroke-width="2" stroke-linecap="round"/>
+  <!-- Staff orb -->
+  <circle cx="119" cy="98" r="10" fill="#0a1830" stroke="#00d4ff" stroke-width="1.5" opacity="0.9"/>
+  <circle cx="119" cy="98" r="6" fill="#00d4ff" opacity="0.4" filter="url(#b3)"/>
+  <circle cx="119" cy="98" r="3" fill="#80ecff" opacity="0.9"/>
+  <!-- Staff energy bolts -->
+  <line x1="109" y1="88" x2="104" y2="82" stroke="#00d4ff" stroke-width="1" opacity="0.6"/>
+  <line x1="119" y1="86" x2="119" y2="78" stroke="#00d4ff" stroke-width="1" opacity="0.6"/>
+  <line x1="129" y1="88" x2="134" y2="82" stroke="#00d4ff" stroke-width="1" opacity="0.6"/>
+  <!-- Staff glow -->
+  <circle cx="119" cy="98" r="16" fill="#00d4ff" opacity="0.08" filter="url(#b6)"/>
+
+  <!-- Cloak / cape -->
+  <path d="M138 205 Q125 240 120 285 L160 275 L200 285 Q195 240 182 205 Z" fill="#091525" opacity="0.85"/>
+  <path d="M138 205 Q130 230 125 275" fill="none" stroke="#1a4060" stroke-width="1" opacity="0.5"/>
+
+  <!-- Shoulder pauldrons -->
+  <ellipse cx="138" cy="202" rx="10" ry="7" fill="#0e2240" stroke="#1a4060" stroke-width="0.5"/>
+  <ellipse cx="182" cy="202" rx="10" ry="7" fill="#0e2240" stroke="#1a4060" stroke-width="0.5"/>
+  <!-- Pauldron neon trim -->
+  <path d="M129 202 Q138 196 147 202" fill="none" stroke="#00d4ff" stroke-width="0.8" opacity="0.6"/>
+  <path d="M173 202 Q182 196 191 202" fill="none" stroke="#00d4ff" stroke-width="0.8" opacity="0.6"/>
+
+  <!-- Head / helmet -->
+  <ellipse cx="160" cy="183" rx="15" ry="17" fill="#0d1e3a"/>
+  <!-- Helmet visor -->
+  <path d="M148 182 Q160 178 172 182 L171 190 Q160 193 149 190 Z" fill="#001830"/>
+  <path d="M148 182 Q160 178 172 182 L171 190 Q160 193 149 190 Z" fill="#00d4ff" opacity="0.25"/>
+  <path d="M150 184 Q160 181 170 184 L169 189 Q160 191 151 189 Z" fill="#00d4ff" opacity="0.15" filter="url(#b3)"/>
+  <!-- Visor glow line -->
+  <path d="M150 185 Q160 182 170 185" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.8"/>
+  <!-- Helmet top fin -->
+  <path d="M155 168 L160 160 L165 168" fill="#0e2240" stroke="#1a4060" stroke-width="0.5"/>
+
+  <!-- Floating energy particles -->
+  <g fill="#00d4ff">
+    <circle cx="95" cy="150" r="2" opacity="0.7"/>
+    <circle cx="85" cy="175" r="1.5" opacity="0.5"/>
+    <circle cx="100" cy="195" r="1" opacity="0.4"/>
+    <circle cx="225" cy="145" r="2" opacity="0.6"/>
+    <circle cx="235" cy="170" r="1.5" opacity="0.5"/>
+    <circle cx="220" cy="190" r="1" opacity="0.4"/>
+    <circle cx="140" cy="130" r="1.5" opacity="0.5"/>
+    <circle cx="180" cy="125" r="1.5" opacity="0.4"/>
+  </g>
+  <!-- Larger particle clusters -->
+  <circle cx="92" cy="155" r="4" fill="#00d4ff" opacity="0.06" filter="url(#b3)"/>
+  <circle cx="228" cy="150" r="4" fill="#00d4ff" opacity="0.06" filter="url(#b3)"/>
+
+  <!-- Top decoration -->
+  <rect x="0" y="0" width="320" height="25" fill="#060e1c" opacity="0.9"/>
+  <line x1="0" y1="25" x2="320" y2="25" stroke="#0a3a5a" stroke-width="1"/>
+  <text x="160" y="17" text-anchor="middle" fill="#4a8aaa" font-size="9" font-family="monospace" letter-spacing="3">PLAY — WIN — RISE</text>
+</svg>

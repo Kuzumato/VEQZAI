@@ -768,9 +768,8 @@ img {
     aspect-ratio: 4 / 5;
     border-radius: 14px;
     background:
-        linear-gradient(180deg, rgba(114, 90, 255, 0.25), rgba(255, 84, 183, 0.1)),
-        radial-gradient(circle at 50% 30%, rgba(117, 230, 255, 0.3), transparent 20%),
-        linear-gradient(135deg, rgba(12,16,24,0.95), rgba(26,14,35,0.96));
+        linear-gradient(180deg, rgba(114, 90, 255, 0.15), rgba(255, 84, 183, 0.06)),
+        url('../../assets/images/banner-art.svg') center/cover no-repeat;
     border: 1px solid rgba(170, 207, 255, 0.28);
     overflow: hidden;
 }
@@ -928,9 +927,15 @@ img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background: linear-gradient(135deg, rgba(255,205,120,0.25), rgba(255,255,255,0.05));
+    background: url('../../assets/images/talent-bundle.svg') center/cover no-repeat,
+        linear-gradient(135deg, rgba(255,205,120,0.25), rgba(255,255,255,0.05));
     box-shadow: inset 0 0 18px rgba(255,255,255,0.18);
     position: relative;
+}
+
+.bundle-illustration.team {
+    background: url('../../assets/images/team-bundle.svg') center/cover no-repeat,
+        linear-gradient(135deg, rgba(128,222,255,0.25), rgba(255,255,255,0.05));
 }
 
 .bundle-illustration::before,
@@ -994,8 +999,8 @@ img {
 .large-art {
     min-height: 310px;
     background:
-        radial-gradient(circle at center, rgba(97, 188, 255, 0.15), transparent 32%),
-        linear-gradient(135deg, rgba(19, 23, 41, 0.96), rgba(37, 19, 41, 0.9));
+        radial-gradient(circle at center, rgba(97, 188, 255, 0.08), transparent 32%),
+        url('../../assets/images/promo-hero.svg') center/cover no-repeat;
 }
 
 .small-promo {

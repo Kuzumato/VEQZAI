@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <radialGradient id="bg3" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#2a1a4a"/>
+      <stop offset="100%" stop-color="#100a20"/>
+    </radialGradient>
+    <radialGradient id="faceGlow" cx="50%" cy="45%" r="40%">
+      <stop offset="0%" stop-color="#ff9f50" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ff9f50" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="sg"><feGaussianBlur stdDeviation="3"/></filter>
+    <filter id="sg2"><feGaussianBlur stdDeviation="1.5"/></filter>
+  </defs>
+  <circle cx="50" cy="50" r="50" fill="url(#bg3)"/>
+
+  <!-- Microphone stand -->
+  <rect x="47" y="62" width="6" height="20" rx="2" fill="#2a1a4a"/>
+  <rect x="38" y="80" width="24" height="3" rx="1.5" fill="#2a1a4a"/>
+  <!-- Mic body -->
+  <rect x="43" y="38" width="14" height="26" rx="7" fill="#1a0f35" stroke="#c060ff" stroke-width="1.5"/>
+  <!-- Mic grill lines -->
+  <g stroke="#9040cc" stroke-width="0.8" opacity="0.6">
+    <line x1="44" y1="45" x2="56" y2="45"/>
+    <line x1="43" y1="49" x2="57" y2="49"/>
+    <line x1="43" y1="53" x2="57" y2="53"/>
+    <line x1="44" y1="57" x2="56" y2="57"/>
+  </g>
+  <!-- Mic glow -->
+  <rect x="43" y="38" width="14" height="26" rx="7" fill="#c060ff" opacity="0.08" filter="url(#sg)"/>
+
+  <!-- Headphones arc -->
+  <path d="M28 50 Q28 25 50 25 Q72 25 72 50" fill="none" stroke="#c060ff" stroke-width="3" stroke-linecap="round"/>
+  <!-- Headphone ear cups -->
+  <rect x="22" y="46" width="10" height="14" rx="4" fill="#1a0f35" stroke="#c060ff" stroke-width="1.5"/>
+  <rect x="68" y="46" width="10" height="14" rx="4" fill="#1a0f35" stroke="#c060ff" stroke-width="1.5"/>
+  <!-- Cup glow -->
+  <rect x="24" y="49" width="6" height="8" rx="2" fill="#c060ff" opacity="0.3"/>
+  <rect x="70" y="49" width="6" height="8" rx="2" fill="#c060ff" opacity="0.3"/>
+
+  <!-- Star / streamer icon top -->
+  <polygon points="50,10 52.5,16.5 59,16.5 54,20.5 56,27 50,23 44,27 46,20.5 41,16.5 47.5,16.5" fill="#ffd060" opacity="0.9"/>
+  <polygon points="50,10 52.5,16.5 59,16.5 54,20.5 56,27 50,23 44,27 46,20.5 41,16.5 47.5,16.5" fill="#ffe090" opacity="0.4" filter="url(#sg2)"/>
+
+  <!-- Sound wave arcs -->
+  <g fill="none" stroke="#c060ff" opacity="0.4" stroke-linecap="round">
+    <path d="M32 65 Q28 60 28 55" stroke-width="2"/>
+    <path d="M29 68 Q23 61 23 54" stroke-width="1.5"/>
+    <path d="M68 65 Q72 60 72 55" stroke-width="2"/>
+    <path d="M71 68 Q77 61 77 54" stroke-width="1.5"/>
+  </g>
+
+  <!-- Border ring -->
+  <circle cx="50" cy="50" r="48" fill="none" stroke="#c060ff" stroke-width="1" opacity="0.4"/>
+  <circle cx="50" cy="50" r="48" fill="none" stroke="#c060ff" stroke-width="3" opacity="0.08" filter="url(#sg)"/>
+</svg>

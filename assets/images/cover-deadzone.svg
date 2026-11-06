@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" width="400" height="220">
+  <defs>
+    <linearGradient id="dsky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#120a04"/>
+      <stop offset="50%" stop-color="#2a1008"/>
+      <stop offset="100%" stop-color="#1a0804"/>
+    </linearGradient>
+    <radialGradient id="bloodMoon" cx="20%" cy="18%" r="15%">
+      <stop offset="0%" stop-color="#ff4020"/>
+      <stop offset="50%" stop-color="#cc2010" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#cc2010" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="df"><feGaussianBlur stdDeviation="4"/></filter>
+    <filter id="df2"><feGaussianBlur stdDeviation="2"/></filter>
+    <filter id="df6"><feGaussianBlur stdDeviation="6"/></filter>
+  </defs>
+  <rect width="400" height="220" fill="url(#dsky)"/>
+
+  <!-- Blood moon glow -->
+  <circle cx="80" cy="38" r="40" fill="url(#bloodMoon)"/>
+  <circle cx="80" cy="38" r="20" fill="#cc3010" opacity="0.85"/>
+  <circle cx="80" cy="38" r="24" fill="#ff5020" opacity="0.15" filter="url(#df2)"/>
+
+  <!-- Haze/smoke -->
+  <ellipse cx="200" cy="130" rx="220" ry="60" fill="#2a1008" opacity="0.5" filter="url(#df6)"/>
+
+  <!-- Ruined city silhouette -->
+  <g fill="#100806">
+    <!-- Building 1 -->
+    <rect x="0" y="80" width="40" height="140"/>
+    <rect x="5" y="65" width="12" height="18"/>
+    <rect x="22" y="70" width="10" height="13"/>
+    <!-- Broken top on building 1 -->
+    <polygon points="5,65 10,55 17,62 17,65" fill="#100806"/>
+    <!-- Building 2 -->
+    <rect x="35" y="100" width="50" height="120"/>
+    <rect x="38" y="90" width="8" height="12"/>
+    <rect x="52" y="85" width="8" height="17"/>
+    <rect x="70" y="92" width="8" height="10"/>
+    <!-- Building 3 -->
+    <rect x="80" y="110" width="35" height="110"/>
+    <!-- Building right -->
+    <rect x="300" y="90" width="45" height="130"/>
+    <rect x="308" y="78" width="10" height="14"/>
+    <rect x="324" y="75" width="10" height="17"/>
+    <rect x="338" y="80" width="8" height="12"/>
+    <!-- Broken tower right -->
+    <rect x="345" y="70" width="55" height="150"/>
+    <polygon points="345,70 362,55 370,65 370,70" fill="#100806"/>
+    <polygon points="380,70 395,60 400,70" fill="#100806"/>
+  </g>
+
+  <!-- Windows — some lit red/orange (infected) -->
+  <g opacity="0.7">
+    <rect x="8" y="90" width="6" height="6" rx="1" fill="#ff3010"/>
+    <rect x="22" y="88" width="6" height="6" rx="1" fill="#ff5020" opacity="0.5"/>
+    <rect x="40" y="108" width="6" height="6" rx="1" fill="#ff3010"/>
+    <rect x="55" y="104" width="6" height="6" rx="1" fill="#553010"/>
+    <rect x="88" y="118" width="6" height="6" rx="1" fill="#ff4010" opacity="0.6"/>
+    <rect x="308" y="98" width="6" height="6" rx="1" fill="#ff3010"/>
+    <rect x="324" y="95" width="6" height="6" rx="1" fill="#553010"/>
+    <rect x="338" y="90" width="6" height="6" rx="1" fill="#ff5020" opacity="0.4"/>
+    <rect x="352" y="85" width="6" height="6" rx="1" fill="#ff3010" opacity="0.6"/>
+    <rect x="368" y="82" width="6" height="6" rx="1" fill="#553010"/>
+  </g>
+
+  <!-- Street / ground -->
+  <rect x="0" y="185" width="400" height="35" fill="#120804"/>
+  <!-- Ground cracks -->
+  <g stroke="#2a1008" stroke-width="1" opacity="0.6">
+    <line x1="100" y1="200" x2="130" y2="210"/>
+    <line x1="130" y1="210" x2="150" y2="205"/>
+    <line x1="250" y1="195" x2="270" y2="208"/>
+    <line x1="270" y1="208" x2="290" y2="200"/>
+  </g>
+
+  <!-- Zombie silhouettes (3 small figures) -->
+  <!-- Zombie 1 -->
+  <g transform="translate(130,160)" opacity="0.85">
+    <circle cx="0" cy="-28" r="7" fill="#180804"/>
+    <rect x="-6" cy="-20" width="12" height="22" rx="2" fill="#150603" transform="translate(0,-20)"/>
+    <line x1="-6" y1="-15" x2="-18" y2="-8" stroke="#150603" stroke-width="5" stroke-linecap="round"/>
+    <line x1="6" y1="-15" x2="8" y2="-5" stroke="#150603" stroke-width="5" stroke-linecap="round"/>
+    <line x1="-3" y1="2" x2="-5" y2="18" stroke="#150603" stroke-width="5" stroke-linecap="round"/>
+    <line x1="3" y1="2" x2="5" y2="18" stroke="#150603" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <!-- Zombie 2 -->
+  <g transform="translate(250,165)" opacity="0.75">
+    <circle cx="0" cy="-28" r="6" fill="#180804"/>
+    <rect x="-5" width="10" height="20" rx="2" fill="#150603" transform="translate(0,-18)"/>
+    <line x1="-5" y1="-13" x2="-14" y2="-2" stroke="#150603" stroke-width="4" stroke-linecap="round"/>
+    <line x1="5" y1="-13" x2="16" y2="-10" stroke="#150603" stroke-width="4" stroke-linecap="round"/>
+    <line x1="-2" y1="2" x2="-4" y2="16" stroke="#150603" stroke-width="4" stroke-linecap="round"/>
+    <line x1="2" y1="2" x2="4" y2="16" stroke="#150603" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <!-- Center hero - survivor with gun -->
+  <g transform="translate(200,185)">
+    <!-- Legs -->
+    <rect x="-10" y="-40" width="9" height="40" rx="3" fill="#1a1008"/>
+    <rect x="1" y="-40" width="9" height="40" rx="3" fill="#141008"/>
+    <!-- Body -->
+    <rect x="-13" y="-78" width="26" height="40" rx="4" fill="#1a1210"/>
+    <!-- Vest detail -->
+    <rect x="-11" y="-75" width="10" height="35" rx="2" fill="#222018" opacity="0.8"/>
+    <!-- Arms -->
+    <line x1="-13" y1="-65" x2="-28" y2="-55" stroke="#1a1210" stroke-width="8" stroke-linecap="round"/>
+    <line x1="13" y1="-65" x2="22" y2="-58" stroke="#1a1210" stroke-width="8" stroke-linecap="round"/>
+    <!-- Gun (held in left hand) -->
+    <rect x="-38" y="-58" width="20" height="6" rx="2" fill="#252520"/>
+    <rect x="-40" y="-58" width="4" height="10" rx="1" fill="#252520"/>
+    <!-- Muzzle flash -->
+    <circle cx="-40" cy="-55" r="5" fill="#ff8020" opacity="0.6" filter="url(#df2)"/>
+    <circle cx="-40" cy="-55" r="2" fill="#ffcc60" opacity="0.9"/>
+    <!-- Head -->
+    <ellipse cx="0" cy="-88" rx="11" ry="12" fill="#1a1008"/>
+    <!-- Cap brim -->
+    <rect x="-14" y="-83" width="10" height="4" rx="1" fill="#252018"/>
+  </g>
+
+  <!-- Red mist at ground level -->
+  <ellipse cx="200" cy="190" rx="200" ry="20" fill="#cc2008" opacity="0.08" filter="url(#df6)"/>
+
+  <!-- Title -->
+  <rect x="0" y="0" width="400" height="35" fill="#100604" opacity="0.7"/>
+  <text x="200" y="23" text-anchor="middle" fill="#ff5030" font-size="13" font-family="Georgia, serif" font-weight="bold" letter-spacing="3">DEAD ZONE: SURVIVAL</text>
+  <line x1="50" y1="30" x2="350" y2="30" stroke="#661008" stroke-width="0.5" opacity="0.5"/>
+</svg>
