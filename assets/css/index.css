@@ -181,7 +181,7 @@ h1 .line2 { display: block; background: linear-gradient(135deg, var(--accent) 0%
 }
 
 /* ── FEATURED GAMES ── */
-section { padding: 120px 48px; }
+section { padding: 80px 48px; }
 
 .section-label {
   font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent);
@@ -199,7 +199,7 @@ section { padding: 120px 48px; }
 .games-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
 
 .game-card {
-  position: relative; aspect-ratio: 3/4;
+  position: relative; aspect-ratio: 3/3.2;
   background: var(--surface2);
   overflow: hidden; cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
